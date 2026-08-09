@@ -15,15 +15,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/LocalizationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
