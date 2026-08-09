@@ -5,9 +5,9 @@
        x:Class="munch_stamp.AppShell">
 
     <TabBar>
-        <ShellContent Title="Business"
+        <ShellContent x:Name="BusinessTabContent"
                       ContentTemplate="{DataTemplate local:BusinessProfilePage}" />
-        <ShellContent Title="Cards"
+        <ShellContent x:Name="CardsTabContent"
                       ContentTemplate="{DataTemplate local:LoyaltyCardListPage}" />
     </TabBar>
 

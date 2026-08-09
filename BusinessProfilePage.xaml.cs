@@ -11,7 +11,36 @@ public partial class BusinessProfilePage : ContentPage
     public BusinessProfilePage()
     {
         InitializeComponent();
+        ApplyTranslations();
         Loaded += OnPageLoaded;
+    }
+
+    private void ApplyTranslations()
+    {
+        Title = LocalizationService.Get("BusinessTab");
+        BusinessNameLabelText.Text = LocalizationService.Get("BusinessNameLabel");
+        NameEntry.Placeholder = LocalizationService.Get("BusinessNamePlaceholder");
+        CategoryLabelText.Text = LocalizationService.Get("CategoryLabel");
+        CategoryEntry.Placeholder = LocalizationService.Get("CategoryPlaceholder");
+        VisitsRequiredLabelText.Text = LocalizationService.Get("VisitsRequiredLabel");
+        RewardLabelText.Text = LocalizationService.Get("RewardLabel");
+        RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
+        SaveButton.Text = LocalizationService.Get("SaveButton");
+        LanguageLabelText.Text = LocalizationService.Get("LanguageLabel");
+    }
+    
+    private async void OnEnglishClicked(object? sender, EventArgs e) => await ChangeLanguage("en");
+    private async void OnSpanishClicked(object? sender, EventArgs e) => await ChangeLanguage("es");
+
+    private async Task ChangeLanguage(string code)
+    {
+        if (code == LocalizationService.CurrentLanguage) return;
+
+        await LocalizationService.SetLanguageAsync(code);
+        await DisplayAlert(
+            LocalizationService.Get("SavedTitle"),
+            LocalizationService.Get("RestartNoticeMessage"),
+            "OK");
     }
 
     private async void OnPageLoaded(object? sender, EventArgs e)
@@ -24,13 +53,13 @@ public partial class BusinessProfilePage : ContentPage
             CategoryEntry.Text = existing.Category;
             RewardEntry.Text = existing.DefaultReward;
             VisitsRequiredStepper.Value = existing.DefaultVisitsRequired;
-            VisitsRequiredLabel.Text = existing.DefaultVisitsRequired.ToString();
+            VisitsRequiredValueLabel.Text = existing.DefaultVisitsRequired.ToString(); // was VisitsRequiredLabelText
         }
     }
-
+    
     private void OnVisitsRequiredChanged(object? sender, ValueChangedEventArgs e)
     {
-        VisitsRequiredLabel.Text = ((int)e.NewValue).ToString();
+        VisitsRequiredValueLabel.Text = ((int)e.NewValue).ToString();
     }
 
     private async void OnSaveClicked(object? sender, EventArgs e)

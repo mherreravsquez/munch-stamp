@@ -6,26 +6,31 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-
-            <Label Text="Business Name" FontAttributes="Bold" />
-            <Entry x:Name="NameEntry" Placeholder="e.g. Munch Stamp Coffee" />
-
-            <Label Text="Category" FontAttributes="Bold" />
-            <Entry x:Name="CategoryEntry" Placeholder="e.g. Coffee shop" />
-
-            <Label Text="Visits required for a reward" FontAttributes="Bold" />
             <HorizontalStackLayout Spacing="10">
-                <Label x:Name="VisitsRequiredLabel" Text="10" VerticalOptions="Center" />
+                <Button Text="English" Clicked="OnEnglishClicked" />
+                <Button Text="Español" Clicked="OnSpanishClicked" />
+            </HorizontalStackLayout>
+            
+            <Label x:Name="BusinessNameLabelText" FontAttributes="Bold" />
+            <Entry x:Name="NameEntry" />
+
+            <Label x:Name="CategoryLabelText" FontAttributes="Bold" />
+            <Entry x:Name="CategoryEntry" />
+
+            <Label x:Name="VisitsRequiredLabelText" FontAttributes="Bold" />
+            <HorizontalStackLayout Spacing="10">
+                <Label x:Name="VisitsRequiredValueLabel" Text="10" VerticalOptions="Center" />
                 <Stepper x:Name="VisitsRequiredStepper"
                          Minimum="1" Maximum="50" Value="10"
                          ValueChanged="OnVisitsRequiredChanged" />
             </HorizontalStackLayout>
 
-            <Label Text="Reward description" FontAttributes="Bold" />
-            <Entry x:Name="RewardEntry" Placeholder="e.g. Free coffee" />
+            <Label x:Name="RewardLabelText" FontAttributes="Bold" />
+            <Entry x:Name="RewardEntry" />
 
-            <Button Text="Save" Clicked="OnSaveClicked" Margin="0,20,0,0" />
+            <Button x:Name="SaveButton" Clicked="OnSaveClicked" Margin="0,20,0,0" />
 
+            <Label x:Name="LanguageLabelText" FontAttributes="Bold" Margin="0,20,0,0" />
         </VerticalStackLayout>
     </ScrollView>
 

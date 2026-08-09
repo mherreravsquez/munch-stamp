@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="munch_stamp.AddLoyaltyCardPage"
-             Title="New Loyalty Card">
+             x:Class="munch_stamp.AddLoyaltyCardPage">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="Customer Name" FontAttributes="Bold" />
-            <Entry x:Name="CustomerNameEntry" Placeholder="e.g. Jane Doe" />
+            <Label x:Name="CustomerNameLabelText" FontAttributes="Bold" />
+            <Entry x:Name="CustomerNameEntry" />
 
-            <Label Text="Contact (optional)" FontAttributes="Bold" />
-            <Entry x:Name="CustomerContactEntry" Placeholder="Phone or email" />
+            <Label x:Name="CustomerContactLabelText" FontAttributes="Bold" />
+            <Entry x:Name="CustomerContactEntry" />
 
-            <Label Text="Visits required" FontAttributes="Bold" />
+            <Label x:Name="VisitsRequiredLabelText" FontAttributes="Bold" />
             <HorizontalStackLayout Spacing="10">
-                <Label x:Name="VisitsRequiredLabel" Text="10" VerticalOptions="Center" />
+                <Label x:Name="VisitsRequiredValueLabel" Text="10" VerticalOptions="Center" />
                 <Stepper x:Name="VisitsRequiredStepper"
                          Minimum="1" Maximum="50" Value="10"
                          ValueChanged="OnVisitsRequiredChanged" />
             </HorizontalStackLayout>
 
-            <Label Text="Reward description" FontAttributes="Bold" />
-            <Entry x:Name="RewardEntry" Placeholder="e.g. Free coffee" />
+            <Label x:Name="RewardLabelText" FontAttributes="Bold" />
+            <Entry x:Name="RewardEntry" />
 
-            <Button Text="Create Card" Clicked="OnCreateClicked" Margin="0,20,0,0" />
+            <Button x:Name="CreateCardButtonControl" Clicked="OnCreateClicked" Margin="0,20,0,0" />
 
         </VerticalStackLayout>
     </ScrollView>

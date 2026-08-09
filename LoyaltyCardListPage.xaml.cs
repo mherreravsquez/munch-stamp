@@ -10,7 +10,14 @@ public partial class LoyaltyCardListPage : ContentPage
     public LoyaltyCardListPage()
     {
         InitializeComponent();
+        ApplyTranslations();
         Loaded += async (s, e) => await RefreshList();
+    }
+
+    private void ApplyTranslations()
+    {
+        Title = LocalizationService.Get("LoyaltyCardsTitle");
+        AddCardButtonControl.Text = LocalizationService.Get("AddCardButton");
     }
 
     protected override async void OnAppearing()

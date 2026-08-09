@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="munch_stamp.LoyaltyCardListPage"
-             Title="Loyalty Cards">
+             x:Class="munch_stamp.LoyaltyCardListPage">
 
     <Grid RowDefinitions="*,Auto">
 
@@ -22,7 +21,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Grid.Row="1" Text="+ Add Loyalty Card"
+        <Button x:Name="AddCardButtonControl" Grid.Row="1"
                 Clicked="OnAddCardClicked" Margin="15" />
 
     </Grid>

@@ -10,18 +10,35 @@ public partial class AddLoyaltyCardPage : ContentPage
     public AddLoyaltyCardPage()
     {
         InitializeComponent();
+        ApplyTranslations();
+    }
+
+    private void ApplyTranslations()
+    {
+        Title = LocalizationService.Get("NewLoyaltyCardTitle");
+        CustomerNameLabelText.Text = LocalizationService.Get("CustomerNameLabel");
+        CustomerNameEntry.Placeholder = LocalizationService.Get("CustomerNamePlaceholder");
+        CustomerContactLabelText.Text = LocalizationService.Get("CustomerContactLabel");
+        CustomerContactEntry.Placeholder = LocalizationService.Get("CustomerContactPlaceholder");
+        VisitsRequiredLabelText.Text = LocalizationService.Get("VisitsRequiredLabel");
+        RewardLabelText.Text = LocalizationService.Get("RewardLabel");
+        RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
+        CreateCardButtonControl.Text = LocalizationService.Get("CreateCardButton");
     }
 
     private void OnVisitsRequiredChanged(object? sender, ValueChangedEventArgs e)
     {
-        VisitsRequiredLabel.Text = ((int)e.NewValue).ToString();
+        VisitsRequiredValueLabel.Text = ((int)e.NewValue).ToString();
     }
 
     private async void OnCreateClicked(object? sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(CustomerNameEntry.Text))
         {
-            await DisplayAlert("Missing name", "Please enter a customer name.", "OK");
+            await DisplayAlert(
+                LocalizationService.Get("MissingNameTitle"),
+                LocalizationService.Get("MissingNameMessage"),
+                "OK");
             return;
         }
 
@@ -34,8 +51,6 @@ public partial class AddLoyaltyCardPage : ContentPage
         };
 
         await _cardService.AddAsync(card);
-
-        // Go back to the list — OnAppearing() there will refresh it.
         await Navigation.PopAsync();
     }
 }
