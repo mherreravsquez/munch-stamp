@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="munch_stamp.LoyaltyCardListPage"
+             Title="Loyalty Cards">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <CollectionView x:Name="CardsCollectionView" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15,10" ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="{Binding CustomerName}" FontAttributes="Bold" />
+                            <Label Text="{Binding ProgressText}" TextColor="Gray" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="1"
+                               Text="{Binding RewardDescription}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="1" Text="+ Add Loyalty Card"
+                Clicked="OnAddCardClicked" Margin="15" />
+
+    </Grid>
+
+</ContentPage>

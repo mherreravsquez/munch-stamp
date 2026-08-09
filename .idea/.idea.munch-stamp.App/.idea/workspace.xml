@@ -16,19 +16,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/Business.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/BusinessProfileService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/LoyaltyCard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/LoyaltyCardService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/BusinessProfileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/BusinessProfileService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/munch-stamp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/munch-stamp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="XML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>

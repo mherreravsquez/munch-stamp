@@ -50,5 +50,12 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="LoyaltyCardListPage.cs" />
+      <Compile Update="AddLoyaltyCardPager.xaml.cs">
+        <DependentUpon>AddLoyaltyCardPage.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 
 </Project>

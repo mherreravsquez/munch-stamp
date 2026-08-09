@@ -15,8 +15,7 @@ public class BusinessProfileService
     {
         // FileSystem.AppDataDirectory is a folder MAUI gives every app,
         // private to it, that survives app restarts (but is wiped if the
-        // app is uninstalled). Equivalent idea to a browser's IndexedDB
-        // origin storage, or a save file next to a Unity build.
+        // app is uninstalled). 
         _filePath = Path.Combine(FileSystem.AppDataDirectory, "business.json");
     }
 
