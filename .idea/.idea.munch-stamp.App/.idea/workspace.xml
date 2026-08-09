@@ -5,46 +5,22 @@
     <projectFile kind="XamarinIOS">munch-stamp.csproj</projectFile>
     <projectFile kind="XamarinMacOS">munch-stamp.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainPage.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainPage.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Android/MainActivity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Android/MainApplication.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Android/Resources/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/AppDelegate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Tizen/Main.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Tizen/tizen-manifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Windows/App.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Windows/Package.appxmanifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/Windows/app.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/iOS/AppDelegate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/iOS/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Platforms/iOS/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Colors.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Fonts/OpenSans-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Fonts/OpenSans-Semibold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Images/dotnet_bot.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Raw/AboutAssets.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Styles.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/appicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/appiconfg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/munch-stamp.App.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/munch-stamp.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Business.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/BusinessProfileService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +43,16 @@
   "fromUser": false
 }]]></component>
   <component name="ProjectId" id="3Hf8obXvF8CdGOPamRidTL8nDDT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android.munch-stamp.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -83,11 +63,15 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/usr/lib/jvm/java-17-openjdk-amd64/bin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "AndroidSettingsPageId"
   }
 }]]></component>
-  <component name="RunManager" selected="iOS.munch-stamp">
+  <component name="RunManager" selected="Android.munch-stamp">
     <configuration name="munch-stamp" type="XamarinAndroidProject" factoryName="Xamarin.Android">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/munch-stamp.csproj" />
       <option name="PROGRAM_PARAMETERS" value="" />
