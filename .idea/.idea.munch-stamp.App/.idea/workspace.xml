@@ -22,15 +22,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/RewardService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/DatabaseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/MigrationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Business.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Business.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LoyaltyCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LoyaltyCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Visit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Visit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/BusinessProfileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/BusinessProfileService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/LoyaltyCardService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/LoyaltyCardService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/munch-stamp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/munch-stamp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1786247939899</updated>
       <workItem from="1786319853175" duration="3445000" />
-      <workItem from="1786323887718" duration="3785000" />
+      <workItem from="1786323887718" duration="4641000" />
     </task>
     <servers />
   </component>

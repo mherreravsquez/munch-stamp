@@ -6,6 +6,8 @@ Munch-Stamp allows businesses to create virtual loyalty cards for their customer
 
 The project is also a **learning project** focused on learning mobile and cross-platform application development using technologies that are familiar to the developer.
 
+---
+
 ## Features
 
 - Business profile management
@@ -19,6 +21,8 @@ The project is also a **learning project** focused on learning mobile and cross-
 - Generic business support
 - English and Spanish localization
 
+---
+
 ## Tech Stack
 
 - **.NET MAUI** — Cross-platform application framework
@@ -30,6 +34,8 @@ The project is also a **learning project** focused on learning mobile and cross-
 - **Google Drive API** — Cloud backup and restoration
 
 .NET MAUI was selected because it allows the project to target Android, iOS, Windows, and macOS from a single C# codebase, while building on existing C# knowledge from Unity.
+
+---
 
 ## Architecture
 
@@ -50,6 +56,8 @@ The application uses a deliberately simple layered architecture:
 
 The goal is to keep the code easy to understand without introducing unnecessary enterprise patterns or abstractions.
 
+---
+
 ## Data Model
 
 The core data is organized around four main entities:
@@ -62,6 +70,8 @@ Business
 BackupRecord
 ```
 
+---
+
 A business can have multiple loyalty cards, and each card keeps its own visit history.
 
 Each loyalty card has a separate `QrCodeId`. The QR code contains only this random identifier, allowing a QR code to be revoked or regenerated without losing the card's history.
@@ -69,21 +79,23 @@ Each loyalty card has a separate `QrCodeId`. The QR code contains only this rand
 ## Roadmap
 
 | Status | Milestone |
-|---|---|
-| ✅ | Project setup |
-| ✅ | Business profile |
-| ✅ | Loyalty cards |
-| ✅ | English / Spanish localization |
-| ✅ | QR codes |
-| ✅ | Visit registration |
-| ⏭️ | Rewards |
-| ⬜ | SQLite persistence |
-| ⬜ | Native sharing |
-| ⬜ | Google Drive backup |
-| ⬜ | Customer interface |
-| ⬜ | Packaging and releases |
+|--------|---|
+| ✅      | Project setup |
+| ✅      | Business profile |
+| ✅      | Loyalty cards |
+| ✅      | English / Spanish localization |
+| ✅      | QR codes |
+| ✅      | Visit registration |
+| ✅      | Rewards |
+| ✅      | SQLite persistence |
+| ⏩      | Native sharing |
+| ⬜      | Google Drive backup |
+| ⬜      | Customer interface |
+| ⬜      | Packaging and releases |
 
-The current development phase is **rewards**.
+The current development phase is **native sharing**.
+
+---
 
 ## Project Goals
 
@@ -95,6 +107,8 @@ This project has two goals:
 The project intentionally favors **simple, readable code over complex architecture**.
 
 New technologies and concepts will be introduced incrementally throughout development.
+
+---
 
 ## Open Source
 
@@ -109,6 +123,8 @@ The repository should remain free of:
 - Business or customer data
 
 Contributions, suggestions, and improvements are welcome.
+
+---
 
 ## License
 

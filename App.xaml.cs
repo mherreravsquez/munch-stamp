@@ -20,9 +20,10 @@ public partial class App : Application
 
     private async void InitializeAppAsync()
     {
+        await DatabaseService.InitializeAsync();
+        await MigrationService.MigrateFromJsonIfNeededAsync();
         await LocalizationService.InitializeAsync();
 
-        // Swap the placeholder out for the real app once strings are loaded.
         MainPage = new AppShell();
     }
 }

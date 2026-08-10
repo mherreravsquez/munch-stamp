@@ -1,13 +1,15 @@
+using SQLite;
+
 namespace munch_stamp.Models;
 
 public class LoyaltyCard
 {
+    [PrimaryKey]
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public string CustomerName { get; set; } = string.Empty;
     public string CustomerContact { get; set; } = string.Empty;
 
-    // The identifier that will go inside the QR code
-    // Deliberately separate from Id
+    [Indexed]
     public string QrCodeId { get; set; } = Guid.NewGuid().ToString();
 
     public int VisitsRequired { get; set; } = 10;
@@ -16,9 +18,13 @@ public class LoyaltyCard
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+    // NOT a database column — [Ignore] tells sqlite-net to skip this
+    // property entirely. It's populated manually by the service layer
+    // after a separate query for this card's visits, the same way you'd
+    // manually join two spreadsheets together in code.
+    [Ignore]
     public List<Visit> Visits { get; set; } = new();
-    
-    // No longer settable directly — always reflects the real visit history.
+
     public int VisitsCount => Visits.Count;
-    public string ProgressText => $"{VisitsCount} / {VisitsRequired} visits";    
+    public string ProgressText => $"{VisitsCount} / {VisitsRequired} visits";
 }

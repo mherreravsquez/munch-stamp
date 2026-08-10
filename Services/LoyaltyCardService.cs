@@ -1,68 +1,62 @@
-using System.Text.Json;
 using munch_stamp.Models;
 
 namespace munch_stamp.Services;
 
 public class LoyaltyCardService
 {
-    private readonly string _filePath;
-    
     public enum VisitRegistrationOutcome { Success, CardNotFound, TooSoon }
-
     public record VisitRegistrationResult(VisitRegistrationOutcome Outcome, LoyaltyCard? Card);
-
-    public LoyaltyCardService()
-    {
-        _filePath = Path.Combine(FileSystem.AppDataDirectory, "loyalty_cards.json");
-    }
 
     public async Task<List<LoyaltyCard>> LoadAllAsync()
     {
-        if (!File.Exists(_filePath))
-            return new List<LoyaltyCard>();
+        var cards = await DatabaseService.Connection.Table<LoyaltyCard>()
+            .Where(c => c.IsActive)
+            .ToListAsync();
 
-        var json = await File.ReadAllTextAsync(_filePath);
-        return JsonSerializer.Deserialize<List<LoyaltyCard>>(json) ?? new List<LoyaltyCard>();
-    }
+        foreach (var card in cards)
+            card.Visits = await LoadVisitsAsync(card.Id);
 
-    public async Task SaveAllAsync(List<LoyaltyCard> cards)
-    {
-        var json = JsonSerializer.Serialize(cards);
-        await File.WriteAllTextAsync(_filePath, json);
+        return cards;
     }
 
     public async Task AddAsync(LoyaltyCard card)
     {
-        var cards = await LoadAllAsync();
-        cards.Add(card);
-        await SaveAllAsync(cards);
+        await DatabaseService.Connection.InsertAsync(card);
     }
-    
+
     public async Task<VisitRegistrationResult> RegisterVisitAsync(string qrCodeId)
     {
-        var cards = await LoadAllAsync();
-        var card = cards.FirstOrDefault(c => c.QrCodeId == qrCodeId && c.IsActive);
+        var card = await DatabaseService.Connection.Table<LoyaltyCard>()
+            .Where(c => c.QrCodeId == qrCodeId && c.IsActive)
+            .FirstOrDefaultAsync();
 
         if (card is null)
             return new VisitRegistrationResult(VisitRegistrationOutcome.CardNotFound, null);
 
+        card.Visits = await LoadVisitsAsync(card.Id);
         var lastVisit = card.Visits.OrderByDescending(v => v.Timestamp).FirstOrDefault();
+
         if (lastVisit is not null && DateTime.UtcNow - lastVisit.Timestamp < TimeSpan.FromSeconds(60))
             return new VisitRegistrationResult(VisitRegistrationOutcome.TooSoon, card);
 
-        card.Visits.Add(new Visit());
-        await SaveAllAsync(cards);
+        var visit = new Visit { LoyaltyCardId = card.Id };
+        await DatabaseService.Connection.InsertAsync(visit);
+        card.Visits.Add(visit);
 
         return new VisitRegistrationResult(VisitRegistrationOutcome.Success, card);
     }
-    
+
     public async Task RedeemRewardAsync(string cardId)
     {
-        var cards = await LoadAllAsync();
-        var card = cards.FirstOrDefault(c => c.Id == cardId);
-        if (card is null) return;
+        await DatabaseService.Connection.Table<Visit>()
+            .Where(v => v.LoyaltyCardId == cardId)
+            .DeleteAsync();
+    }
 
-        card.Visits.Clear();
-        await SaveAllAsync(cards);
+    private async Task<List<Visit>> LoadVisitsAsync(string cardId)
+    {
+        return await DatabaseService.Connection.Table<Visit>()
+            .Where(v => v.LoyaltyCardId == cardId)
+            .ToListAsync();
     }
 }
