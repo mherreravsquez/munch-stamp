@@ -39,5 +39,7 @@
   "RedeemButton": "Canjear recompensa",
   "RedeemConfirmTitle": "¿Canjear recompensa?",
   "RedeemConfirmMessage": "Esto reinicia el conteo de visitas a 0. ¿Continuar?",
-  "RedeemedMessage": "Recompensa canjeada. Progreso reiniciado."
+  "RedeemedMessage": "Recompensa canjeada. Progreso reiniciado.",
+  "ShareButton": "Compartir tarjeta",
+  "ShareTitle": "Tarjeta de fidelidad"
 }

@@ -39,5 +39,7 @@
   "RedeemButton": "Redeem Reward",
   "RedeemConfirmTitle": "Redeem reward?",
   "RedeemConfirmMessage": "This resets the visit count to 0. Continue?",
-  "RedeemedMessage": "Reward redeemed. Progress reset."
+  "RedeemedMessage": "Reward redeemed. Progress reset.",
+  "ShareButton": "Share card",
+  "ShareTitle": "Loyalty card"
 }

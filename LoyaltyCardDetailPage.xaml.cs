@@ -22,7 +22,29 @@ public partial class LoyaltyCardDetailPage : ContentPage
         Title = LocalizationService.Get("CardDetailsTitle");
         QrCodeSectionLabelText.Text = LocalizationService.Get("QrCodeSectionLabel");
         RedeemButton.Text = LocalizationService.Get("RedeemButton");
+        ShareButton.Text = LocalizationService.Get("ShareButton");
     }
+
+    private async void OnShareClicked(object? sender, EventArgs e)
+    {
+        // The Share API needs an actual file on disk, not raw bytes —
+        // so we write the QR PNG to the app's cache folder first.
+        // CacheDirectory (vs. AppDataDirectory used for the database)
+        // is the right spot for throwaway files the OS can clear if
+        // it needs space — we don't need this file to persist.
+        var qrBytes = GenerateQrCodePng(_card.QrCodeId);
+        var filePath = Path.Combine(FileSystem.CacheDirectory, $"{SanitizeFileName(_card.CustomerName)}-qr.png");
+        await File.WriteAllBytesAsync(filePath, qrBytes);
+
+        await Share.Default.RequestAsync(new ShareFileRequest
+        {
+            Title = $"{LocalizationService.Get("ShareTitle")} — {_card.CustomerName}",
+            File = new ShareFile(filePath)
+        });
+    }
+    
+    private static string SanitizeFileName(string input) =>
+        string.Concat(input.Split(Path.GetInvalidFileNameChars()));
 
     private void RefreshDisplay()
     {
