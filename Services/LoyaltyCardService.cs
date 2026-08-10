@@ -55,4 +55,14 @@ public class LoyaltyCardService
 
         return new VisitRegistrationResult(VisitRegistrationOutcome.Success, card);
     }
+    
+    public async Task RedeemRewardAsync(string cardId)
+    {
+        var cards = await LoadAllAsync();
+        var card = cards.FirstOrDefault(c => c.Id == cardId);
+        if (card is null) return;
+
+        card.Visits.Clear();
+        await SaveAllAsync(cards);
+    }
 }

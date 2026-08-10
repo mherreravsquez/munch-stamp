@@ -34,5 +34,10 @@
   "DuplicateVisitTitle": "Already scanned",
   "DuplicateVisitMessage": "This card was just scanned. Wait a moment before scanning again.",
   "CardNotFoundTitle": "Card not found",
-  "CardNotFoundMessage": "This QR code doesn't match any active loyalty card."
+  "CardNotFoundMessage": "This QR code doesn't match any active loyalty card.",
+  "RewardEarnedTitle": "🎉 Reward earned!",
+  "RedeemButton": "Redeem Reward",
+  "RedeemConfirmTitle": "Redeem reward?",
+  "RedeemConfirmMessage": "This resets the visit count to 0. Continue?",
+  "RedeemedMessage": "Reward redeemed. Progress reset."
 }

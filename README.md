@@ -25,7 +25,8 @@ The project is also a **learning project** focused on learning mobile and cross-
 - **C#** — Application and business logic
 - **XAML** — User interface
 - **SQLite** — Local data storage
-- **ZXing.Net.Maui** — QR code generation and scanning
+- **QRCoder** — QR code generation
+- **BarcodeScanning.Native.Maui** — QR code scanning (camera-based)
 - **Google Drive API** — Cloud backup and restoration
 
 .NET MAUI was selected because it allows the project to target Android, iOS, Windows, and macOS from a single C# codebase, while building on existing C# knowledge from Unity.
@@ -73,16 +74,16 @@ Each loyalty card has a separate `QrCodeId`. The QR code contains only this rand
 | ✅ | Business profile |
 | ✅ | Loyalty cards |
 | ✅ | English / Spanish localization |
-| ⏭️ | QR codes |
-| ⬜ | Visit registration |
-| ⬜ | Rewards |
+| ✅ | QR codes |
+| ✅ | Visit registration |
+| ⏭️ | Rewards |
 | ⬜ | SQLite persistence |
 | ⬜ | Native sharing |
 | ⬜ | Google Drive backup |
 | ⬜ | Customer interface |
 | ⬜ | Packaging and releases |
 
-The current development phase is **QR code implementation**.
+The current development phase is **rewards**.
 
 ## Project Goals
 

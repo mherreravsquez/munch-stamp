@@ -48,10 +48,20 @@ public partial class ScanVisitPage : ContentPage
         switch (result.Outcome)
         {
             case LoyaltyCardService.VisitRegistrationOutcome.Success:
-                await DisplayAlert(
-                    LocalizationService.Get("VisitRegisteredTitle"),
-                    $"{result.Card!.CustomerName}: {result.Card.ProgressText}",
-                    "OK");
+                if (RewardService.HasEarnedReward(result.Card!))
+                {
+                    await DisplayAlert(
+                        LocalizationService.Get("RewardEarnedTitle"),
+                        $"{result.Card.CustomerName}: {result.Card.RewardDescription}",
+                        "OK");
+                }
+                else
+                {
+                    await DisplayAlert(
+                        LocalizationService.Get("VisitRegisteredTitle"),
+                        $"{result.Card.CustomerName}: {result.Card.ProgressText}",
+                        "OK");
+                }
                 break;
 
             case LoyaltyCardService.VisitRegistrationOutcome.TooSoon:

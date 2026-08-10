@@ -34,5 +34,10 @@
   "DuplicateVisitTitle": "Ya escaneado",
   "DuplicateVisitMessage": "Esta tarjeta se escaneó hace un momento. Espera antes de volver a escanear.",
   "CardNotFoundTitle": "Tarjeta no encontrada",
-  "CardNotFoundMessage": "Este código QR no coincide con ninguna tarjeta activa."
+  "CardNotFoundMessage": "Este código QR no coincide con ninguna tarjeta activa.",
+  "RewardEarnedTitle": "🎉 ¡Recompensa obtenida!",
+  "RedeemButton": "Canjear recompensa",
+  "RedeemConfirmTitle": "¿Canjear recompensa?",
+  "RedeemConfirmMessage": "Esto reinicia el conteo de visitas a 0. ¿Continuar?",
+  "RedeemedMessage": "Recompensa canjeada. Progreso reiniciado."
 }

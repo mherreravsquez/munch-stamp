@@ -16,6 +16,7 @@
                WidthRequest="250"
                BackgroundColor="White" />
 
+        <Button x:Name="RedeemButton" Margin="0,20,0,0" Clicked="OnRedeemClicked" IsVisible="False" />
     </VerticalStackLayout>
 
 </ContentPage>
