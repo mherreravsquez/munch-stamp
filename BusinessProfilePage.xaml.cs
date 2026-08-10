@@ -26,7 +26,6 @@ public partial class BusinessProfilePage : ContentPage
         RewardLabelText.Text = LocalizationService.Get("RewardLabel");
         RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
         SaveButton.Text = LocalizationService.Get("SaveButton");
-        LanguageLabelText.Text = LocalizationService.Get("LanguageLabel");
     }
     
     private async void OnEnglishClicked(object? sender, EventArgs e) => await ChangeLanguage("en");

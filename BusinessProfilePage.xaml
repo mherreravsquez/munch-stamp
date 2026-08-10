@@ -7,12 +7,6 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
             
-            <Label x:Name="LanguageLabelText" FontAttributes="Bold" Margin="0,20,0,0" />
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="English" Clicked="OnEnglishClicked" />
-                <Button Text="Español" Clicked="OnSpanishClicked" />
-            </HorizontalStackLayout>
-            
             <Label x:Name="BusinessNameLabelText" FontAttributes="Bold" />
             <Entry x:Name="NameEntry" />
 
