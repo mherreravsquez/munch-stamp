@@ -9,5 +9,6 @@ public partial class AppShell : Shell
         InitializeComponent();
         BusinessTabContent.Title = LocalizationService.Get("BusinessTab");
         CardsTabContent.Title = LocalizationService.Get("CardsTab");
+        ScanTabContent.Title = LocalizationService.Get("ScanTab");
     }
 }

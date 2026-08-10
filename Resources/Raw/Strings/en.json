@@ -25,5 +25,14 @@
   "CustomerContactPlaceholder": "Phone or email",
   "CreateCardButton": "Create Card",
   "CardDetailsTitle": "Card Details",
-  "QrCodeSectionLabel": "Show this code to register a visit"
+  "QrCodeSectionLabel": "Show this code to register a visit",
+  "ScanTab": "Scan",
+  "ScanVisitTitle": "Register Visit",
+  "ScanInstructions": "Point the camera at the customer's QR code",
+  "VisitRegisteredTitle": "Visit registered",
+  "VisitRegisteredMessage": "Progress updated.",
+  "DuplicateVisitTitle": "Already scanned",
+  "DuplicateVisitMessage": "This card was just scanned. Wait a moment before scanning again.",
+  "CardNotFoundTitle": "Card not found",
+  "CardNotFoundMessage": "This QR code doesn't match any active loyalty card."
 }

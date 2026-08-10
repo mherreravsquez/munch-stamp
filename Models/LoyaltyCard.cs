@@ -10,14 +10,15 @@ public class LoyaltyCard
     // Deliberately separate from Id
     public string QrCodeId { get; set; } = Guid.NewGuid().ToString();
 
-    public int VisitsCount { get; set; } = 0;
     public int VisitsRequired { get; set; } = 10;
     public string RewardDescription { get; set; } = string.Empty;
     public DateTime? ExpiresAt { get; set; }
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    // A computed, read-only convenience property for the UI.
-    // Not stored — recalculated every time it's read.
-    public string ProgressText => $"{VisitsCount} / {VisitsRequired} visits";
+    public List<Visit> Visits { get; set; } = new();
+    
+    // No longer settable directly — always reflects the real visit history.
+    public int VisitsCount => Visits.Count;
+    public string ProgressText => $"{VisitsCount} / {VisitsRequired} visits";    
 }

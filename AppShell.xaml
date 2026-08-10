@@ -9,6 +9,8 @@
                       ContentTemplate="{DataTemplate local:BusinessProfilePage}" />
         <ShellContent x:Name="CardsTabContent"
                       ContentTemplate="{DataTemplate local:LoyaltyCardListPage}" />
+        <ShellContent x:Name="ScanTabContent"
+                      ContentTemplate="{DataTemplate local:ScanVisitPage}" />
     </TabBar>
 
 </Shell>

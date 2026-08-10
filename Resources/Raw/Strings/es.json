@@ -25,5 +25,14 @@
   "CustomerContactPlaceholder": "Teléfono o correo",
   "CreateCardButton": "Crear tarjeta",
   "CardDetailsTitle": "Detalles de la tarjeta",
-  "QrCodeSectionLabel": "Muestra este código para registrar una visita"
+  "QrCodeSectionLabel": "Muestra este código para registrar una visita",
+  "ScanTab": "Escanear",
+  "ScanVisitTitle": "Registrar visita",
+  "ScanInstructions": "Apunta la cámara al código QR del cliente",
+  "VisitRegisteredTitle": "Visita registrada",
+  "VisitRegisteredMessage": "Progreso actualizado.",
+  "DuplicateVisitTitle": "Ya escaneado",
+  "DuplicateVisitMessage": "Esta tarjeta se escaneó hace un momento. Espera antes de volver a escanear.",
+  "CardNotFoundTitle": "Tarjeta no encontrada",
+  "CardNotFoundMessage": "Este código QR no coincide con ninguna tarjeta activa."
 }

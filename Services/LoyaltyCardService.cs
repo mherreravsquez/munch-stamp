@@ -6,6 +6,10 @@ namespace munch_stamp.Services;
 public class LoyaltyCardService
 {
     private readonly string _filePath;
+    
+    public enum VisitRegistrationOutcome { Success, CardNotFound, TooSoon }
+
+    public record VisitRegistrationResult(VisitRegistrationOutcome Outcome, LoyaltyCard? Card);
 
     public LoyaltyCardService()
     {
@@ -32,5 +36,23 @@ public class LoyaltyCardService
         var cards = await LoadAllAsync();
         cards.Add(card);
         await SaveAllAsync(cards);
+    }
+    
+    public async Task<VisitRegistrationResult> RegisterVisitAsync(string qrCodeId)
+    {
+        var cards = await LoadAllAsync();
+        var card = cards.FirstOrDefault(c => c.QrCodeId == qrCodeId && c.IsActive);
+
+        if (card is null)
+            return new VisitRegistrationResult(VisitRegistrationOutcome.CardNotFound, null);
+
+        var lastVisit = card.Visits.OrderByDescending(v => v.Timestamp).FirstOrDefault();
+        if (lastVisit is not null && DateTime.UtcNow - lastVisit.Timestamp < TimeSpan.FromSeconds(60))
+            return new VisitRegistrationResult(VisitRegistrationOutcome.TooSoon, card);
+
+        card.Visits.Add(new Visit());
+        await SaveAllAsync(cards);
+
+        return new VisitRegistrationResult(VisitRegistrationOutcome.Success, card);
     }
 }
