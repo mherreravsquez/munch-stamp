@@ -23,5 +23,7 @@
   "CustomerNamePlaceholder": "e.g. Jane Doe",
   "CustomerContactLabel": "Contact (optional)",
   "CustomerContactPlaceholder": "Phone or email",
-  "CreateCardButton": "Create Card"
+  "CreateCardButton": "Create Card",
+  "CardDetailsTitle": "Card Details",
+  "QrCodeSectionLabel": "Show this code to register a visit"
 }

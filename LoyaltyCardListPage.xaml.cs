@@ -36,4 +36,13 @@ public partial class LoyaltyCardListPage : ContentPage
     {
         await Navigation.PushAsync(new AddLoyaltyCardPage());
     }
+    
+    private async void OnCardSelected(object? sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is LoyaltyCard selectedCard)
+        {
+            await Navigation.PushAsync(new LoyaltyCardDetailPage(selectedCard));
+            CardsCollectionView.SelectedItem = null; // reset, so tapping the same row again still fires
+        }
+    }
 }

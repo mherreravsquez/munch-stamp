@@ -23,5 +23,7 @@
   "CustomerNamePlaceholder": "ej. Juana Pérez",
   "CustomerContactLabel": "Contacto (opcional)",
   "CustomerContactPlaceholder": "Teléfono o correo",
-  "CreateCardButton": "Crear tarjeta"
+  "CreateCardButton": "Crear tarjeta",
+  "CardDetailsTitle": "Detalles de la tarjeta",
+  "QrCodeSectionLabel": "Muestra este código para registrar una visita"
 }

@@ -5,7 +5,9 @@
 
     <Grid RowDefinitions="*,Auto">
 
-        <CollectionView x:Name="CardsCollectionView" Grid.Row="0">
+        <CollectionView x:Name="CardsCollectionView" Grid.Row="0"
+                        SelectionMode="Single"
+                        SelectionChanged="OnCardSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="15,10" ColumnDefinitions="*,Auto">

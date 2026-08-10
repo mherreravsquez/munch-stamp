@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="munch_stamp.LoyaltyCardDetailPage">
+
+    <VerticalStackLayout Padding="20" Spacing="15" HorizontalOptions="Center">
+
+        <Label x:Name="CustomerNameLabel" FontAttributes="Bold" FontSize="22" HorizontalOptions="Center" />
+        <Label x:Name="ProgressLabel" FontSize="16" HorizontalOptions="Center" />
+        <Label x:Name="RewardLabel" FontSize="16" HorizontalOptions="Center" TextColor="Gray" />
+
+        <Label x:Name="QrCodeSectionLabelText" Margin="0,20,0,0" HorizontalOptions="Center" />
+
+        <Image x:Name="QrCodeImage"
+               HeightRequest="250"
+               WidthRequest="250"
+               BackgroundColor="White" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
