@@ -32,9 +32,6 @@
                 <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
                     <Label Text="Apunta al código QR" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
                 </VerticalStackLayout>
-
-                <!-- Simulation touch button -->
-                <Button BackgroundColor="Transparent" Command="{Binding SimulateScanCommand}" />
             </Grid>
         </Border>
     </Grid>
