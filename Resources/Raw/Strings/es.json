@@ -41,5 +41,19 @@
   "RedeemConfirmMessage": "Esto reinicia el conteo de visitas a 0. ¿Continuar?",
   "RedeemedMessage": "Recompensa canjeada. Progreso reiniciado.",
   "ShareButton": "Compartir tarjeta",
-  "ShareTitle": "Tarjeta de fidelidad"
+  "ShareTitle": "Tarjeta de fidelidad",
+  "SaveToDeviceButton": "Guardar en el dispositivo",
+  "BackupTab": "Respaldo",
+  "ExportButton": "Compartir archivo de respaldo",
+  "RestoreButton": "Restaurar desde archivo",
+  "NoBackupYetLabel": "Aún no hay respaldo",
+  "LastBackupLabel": "Último respaldo",
+  "ShareBackupTitle": "Respaldo de Munch Stamp",
+  "SelectBackupFileTitle": "Selecciona un archivo de respaldo de Munch Stamp",
+  "BackupSuccessTitle": "Listo",
+  "BackupFailedTitle": "Error al respaldar",
+  "RestoreConfirmTitle": "¿Restaurar datos?",
+  "RestoreConfirmMessage": "Esto reemplaza todos los datos actuales del dispositivo con el archivo seleccionado. ¿Continuar?",
+  "RestoreSuccessMessage": "Datos restaurados correctamente.",
+  "RestoreFailedTitle": "Error al restaurar"
 }

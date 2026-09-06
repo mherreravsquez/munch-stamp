@@ -11,6 +11,8 @@
                       ContentTemplate="{DataTemplate local:LoyaltyCardListPage}" />
         <ShellContent x:Name="ScanTabContent"
                       ContentTemplate="{DataTemplate local:ScanVisitPage}" />
+        <ShellContent x:Name="BackupTabContent"
+                      ContentTemplate="{DataTemplate local:BackupPage}" />
     </TabBar>
 
 </Shell>

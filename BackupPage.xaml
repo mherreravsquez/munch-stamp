@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="munch_stamp.BackupPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Button x:Name="SaveToDeviceButton" Clicked="OnSaveToDeviceClicked" />
+            <Button x:Name="ExportButton" Clicked="OnExportClicked" />
+            <Button x:Name="RestoreButton" Clicked="OnRestoreClicked" />
+            <Label x:Name="LastBackupLabel" TextColor="Gray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

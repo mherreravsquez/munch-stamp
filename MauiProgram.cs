@@ -1,4 +1,6 @@
-﻿namespace munch_stamp;
+﻿using CommunityToolkit.Maui;
+
+namespace munch_stamp;
 using BarcodeScanning;
 
 public static class MauiProgram
@@ -9,6 +11,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseBarcodeScanning()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -41,5 +41,19 @@
   "RedeemConfirmMessage": "This resets the visit count to 0. Continue?",
   "RedeemedMessage": "Reward redeemed. Progress reset.",
   "ShareButton": "Share card",
-  "ShareTitle": "Loyalty card"
+  "ShareTitle": "Loyalty card",
+  "SaveToDeviceButton": "Save to device",
+  "BackupTab": "Backup",
+  "ExportButton": "Share backup file",
+  "RestoreButton": "Restore from file",
+  "NoBackupYetLabel": "No backup yet",
+  "LastBackupLabel": "Last backup",
+  "ShareBackupTitle": "Munch Stamp backup",
+  "SelectBackupFileTitle": "Select a Munch Stamp backup file",
+  "BackupSuccessTitle": "Done",
+  "BackupFailedTitle": "Backup failed",
+  "RestoreConfirmTitle": "Restore data?",
+  "RestoreConfirmMessage": "This replaces all current data on this device with the selected backup file. Continue?",
+  "RestoreSuccessMessage": "Data restored successfully.",
+  "RestoreFailedTitle": "Restore failed"
 }

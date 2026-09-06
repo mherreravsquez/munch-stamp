@@ -17,7 +17,7 @@ The project is also a **learning project** focused on learning mobile and cross-
 - Configurable visit requirements and rewards
 - Offline-first local data storage
 - Native card sharing
-- Google Drive backup and restore
+- Local backup and restore (share sheet + save to device)
 - Generic business support
 - English and Spanish localization
 
@@ -31,7 +31,7 @@ The project is also a **learning project** focused on learning mobile and cross-
 - **SQLite** — Local data storage
 - **QRCoder** — QR code generation
 - **BarcodeScanning.Native.Maui** — QR code scanning (camera-based)
-- **Google Drive API** — Cloud backup and restoration
+- **CommunityToolkit.Maui** — native file save dialog (backup export)
 
 .NET MAUI was selected because it allows the project to target Android, iOS, Windows, and macOS from a single C# codebase, while building on existing C# knowledge from Unity.
 
@@ -50,7 +50,7 @@ The application uses a deliberately simple layered architecture:
 │    Local Storage (SQLite)   │
 ├─────────────────────────────┤
 │ Device & External Services  │
-│ QR · Sharing · Google Drive │
+│  QR · Sharing · File save   │
 └─────────────────────────────┘
 ```
 
@@ -88,12 +88,14 @@ Each loyalty card has a separate `QrCodeId`. The QR code contains only this rand
 | ✅      | Visit registration |
 | ✅      | Rewards |
 | ✅      | SQLite persistence |
-| ⏩      | Native sharing |
-| ⬜      | Google Drive backup |
+| ✅      | Native sharing |
+| ✅      | Local backup & restore |
 | ⬜      | Customer interface |
 | ⬜      | Packaging and releases |
 
-The current development phase is **native sharing**.
+The current development phase is **the customer interface (Munch-Collector)**.
+
+> **Note on backup:** the original plan called for Google Drive backup, but this was replaced with a simpler, account-free approach: the SQLite database file is exported via the OS share sheet (send it anywhere — Files, WhatsApp, email) or saved directly to the device (e.g. Downloads) via a native file picker, and restored the same way in reverse. No Google account, OAuth, or internet connection required — a better fit for the project's "no server, minimal setup" goals, and for small business owners without much technical background.
 
 ---
 
