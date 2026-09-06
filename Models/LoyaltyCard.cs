@@ -26,5 +26,6 @@ public class LoyaltyCard
     public List<Visit> Visits { get; set; } = new();
 
     public int VisitsCount => Visits.Count;
+    public double ProgressPercent => VisitsRequired <= 0 ? 0 : Math.Min(1, (double)VisitsCount / VisitsRequired);
     public string ProgressText => $"{VisitsCount} / {VisitsRequired} visits";
 }

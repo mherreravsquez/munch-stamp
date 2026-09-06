@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="munch_stamp.BackupPage">
+             x:Class="munch_stamp.BackupPage"
+             BackgroundColor="{StaticResource BackgroundDark}">
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Button x:Name="SaveToDeviceButton" Clicked="OnSaveToDeviceClicked" />
-            <Button x:Name="ExportButton" Clicked="OnExportClicked" />
-            <Button x:Name="RestoreButton" Clicked="OnRestoreClicked" />
-            <Label x:Name="LastBackupLabel" TextColor="Gray" />
+        <VerticalStackLayout Padding="20" Spacing="18">
+            <VerticalStackLayout Margin="0,4,0,8">
+                <Label Text="Respaldo" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+                <Label Text="Copias de seguridad" FontSize="28" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
+                <VerticalStackLayout Spacing="14">
+                    <Button x:Name="SaveToDeviceButton" Clicked="OnSaveToDeviceClicked" Style="{StaticResource PrimaryButton}" Text="Guardar en el dispositivo" />
+                    <Button x:Name="ExportButton" Clicked="OnExportClicked" Style="{StaticResource SecondaryButton}" Text="Exportar copia" />
+                    <Button x:Name="RestoreButton" Clicked="OnRestoreClicked" Style="{StaticResource SecondaryButton}" Text="Restaurar copia" />
+                    <Label x:Name="LastBackupLabel" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

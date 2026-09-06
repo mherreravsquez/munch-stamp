@@ -10,47 +10,41 @@ public partial class AddLoyaltyCardPage : ContentPage
     public AddLoyaltyCardPage()
     {
         InitializeComponent();
-        ApplyTranslations();
+        // Inicializar el valor mostrado
+        VisitsRequiredValueLabel.Text = "10";
     }
 
-    private void ApplyTranslations()
+    private void OnDecrementVisits(object sender, EventArgs e)
     {
-        Title = LocalizationService.Get("NewLoyaltyCardTitle");
-        CustomerNameLabelText.Text = LocalizationService.Get("CustomerNameLabel");
-        CustomerNameEntry.Placeholder = LocalizationService.Get("CustomerNamePlaceholder");
-        CustomerContactLabelText.Text = LocalizationService.Get("CustomerContactLabel");
-        CustomerContactEntry.Placeholder = LocalizationService.Get("CustomerContactPlaceholder");
-        VisitsRequiredLabelText.Text = LocalizationService.Get("VisitsRequiredLabel");
-        RewardLabelText.Text = LocalizationService.Get("RewardLabel");
-        RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
-        CreateCardButtonControl.Text = LocalizationService.Get("CreateCardButton");
+        int val = int.Parse(VisitsRequiredValueLabel.Text);
+        if (val > 1) VisitsRequiredValueLabel.Text = (val - 1).ToString();
     }
 
-    private void OnVisitsRequiredChanged(object? sender, ValueChangedEventArgs e)
+    private void OnIncrementVisits(object sender, EventArgs e)
     {
-        VisitsRequiredValueLabel.Text = ((int)e.NewValue).ToString();
+        int val = int.Parse(VisitsRequiredValueLabel.Text);
+        if (val < 50) VisitsRequiredValueLabel.Text = (val + 1).ToString();
     }
 
-    private async void OnCreateClicked(object? sender, EventArgs e)
+    private async void OnCreateClicked(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(CustomerNameEntry.Text))
         {
-            await DisplayAlert(
-                LocalizationService.Get("MissingNameTitle"),
-                LocalizationService.Get("MissingNameMessage"),
-                "OK");
+            await DisplayAlert("Error", "El nombre del cliente es obligatorio.", "OK");
             return;
         }
 
         var card = new LoyaltyCard
         {
             CustomerName = CustomerNameEntry.Text,
-            CustomerContact = CustomerContactEntry.Text,
-            VisitsRequired = (int)VisitsRequiredStepper.Value,
-            RewardDescription = RewardEntry.Text
+            CustomerContact = CustomerContactEntry.Text ?? string.Empty,
+            VisitsRequired = int.Parse(VisitsRequiredValueLabel.Text),
+            RewardDescription = RewardEntry.Text ?? string.Empty,
+            CreatedAt = DateTime.UtcNow
         };
 
         await _cardService.AddAsync(card);
+        await DisplayAlert("Éxito", "Tarjeta creada correctamente.", "OK");
         await Navigation.PopAsync();
     }
 }

@@ -6,80 +6,84 @@ namespace munch_stamp;
 public partial class ScanVisitPage : ContentPage
 {
     private readonly LoyaltyCardService _cardService = new();
-    private bool _isProcessing; // guards against the same frame firing the event twice
+    private bool _isAnimating;
 
     public ScanVisitPage()
     {
         InitializeComponent();
-        ApplyTranslations();
+        Loaded += OnPageLoaded;
+        // Simulate scan on screen tap (instead of command)
+        var tapGesture = new TapGestureRecognizer();
+        tapGesture.Tapped += OnScannerTapped;
+        Scanner.GestureRecognizers.Add(tapGesture);
+        // Also attach the gesture to the parent grid
+        var parentGrid = (Grid)Scanner.Parent;
+        parentGrid.GestureRecognizers.Add(tapGesture);
     }
 
-    private void ApplyTranslations()
+    private void OnPageLoaded(object sender, EventArgs e)
     {
-        Title = LocalizationService.Get("ScanVisitTitle");
-        InstructionsLabel.Text = LocalizationService.Get("ScanInstructions");
+        // Start scan animation
+        StartScanAnimation();
     }
 
-    protected override async void OnAppearing()
+    private async void StartScanAnimation()
     {
-        base.OnAppearing();
-
-        var status = await Permissions.RequestAsync<Permissions.Camera>();
-        Scanner.CameraEnabled = status == PermissionStatus.Granted;
+        if (_isAnimating) return;
+        _isAnimating = true;
+        var startY = -105;
+        var endY = 105;
+        while (_isAnimating)
+        {
+            await ScanLine.TranslateTo(0, startY, 800, Easing.SinInOut);
+            await ScanLine.TranslateTo(0, endY, 800, Easing.SinInOut);
+        }
     }
+
+    private void StopScanAnimation()
+    {
+        _isAnimating = false;
+        ScanLine.TranslateTo(0, 0, 0);
+    }
+
+    private async void OnScannerTapped(object sender, EventArgs e)
+    {
+        await SimulateScan();
+    }
+
+    private async Task SimulateScan()
+    {
+        // Simulate a known QR (for example, the first card)
+        // In a real case, process the scanned code here.
+        var cards = await _cardService.LoadAllAsync();
+        if (cards.Count == 0)
+        {
+            await DisplayAlert("Sin tarjetas", "No hay tarjetas activas para escanear.", "OK");
+            return;
+        }
+
+        var qrId = cards.First().QrCodeId;
+        var result = await _cardService.RegisterVisitAsync(qrId);
+        if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.Success)
+        {
+            await DisplayAlert("Éxito", $"Visita registrada para {result.Card!.CustomerName}.", "OK");
+        }
+        else if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.TooSoon)
+        {
+            await DisplayAlert("Aviso", "Debes esperar al menos 60 segundos.", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se pudo registrar la visita.", "OK");
+        }
+    }
+
+    // Camera detection handler removed — hook up scanning logic here if using camera.
+
 
     protected override void OnDisappearing()
     {
+        StopScanAnimation();
         base.OnDisappearing();
-        Scanner.CameraEnabled = false; // stop the camera when navigating away
-    }
-
-    private async void OnDetectionFinished(object? sender, OnDetectionFinishedEventArg e)
-    {
-        if (_isProcessing || e.BarcodeResults.Length == 0)
-            return;
-
-        _isProcessing = true;
-        Scanner.CameraEnabled = false;
-
-        var scannedValue = e.BarcodeResults[0].DisplayValue;
-        var result = await _cardService.RegisterVisitAsync(scannedValue);
-
-        switch (result.Outcome)
-        {
-            case LoyaltyCardService.VisitRegistrationOutcome.Success:
-                if (RewardService.HasEarnedReward(result.Card!))
-                {
-                    await DisplayAlert(
-                        LocalizationService.Get("RewardEarnedTitle"),
-                        $"{result.Card.CustomerName}: {result.Card.RewardDescription}",
-                        "OK");
-                }
-                else
-                {
-                    await DisplayAlert(
-                        LocalizationService.Get("VisitRegisteredTitle"),
-                        $"{result.Card.CustomerName}: {result.Card.ProgressText}",
-                        "OK");
-                }
-                break;
-
-            case LoyaltyCardService.VisitRegistrationOutcome.TooSoon:
-                await DisplayAlert(
-                    LocalizationService.Get("DuplicateVisitTitle"),
-                    LocalizationService.Get("DuplicateVisitMessage"),
-                    "OK");
-                break;
-
-            case LoyaltyCardService.VisitRegistrationOutcome.CardNotFound:
-                await DisplayAlert(
-                    LocalizationService.Get("CardNotFoundTitle"),
-                    LocalizationService.Get("CardNotFoundMessage"),
-                    "OK");
-                break;
-        }
-
-        _isProcessing = false;
-        Scanner.CameraEnabled = true; // ready for the next scan
     }
 }

@@ -14,6 +14,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -22,22 +25,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackupPage.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackupPage.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/BackupService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HomePage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HomePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/AndroidProjectSystem.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackupPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BackupPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LoyaltyCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LoyaltyCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Colors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Colors.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/munch-stamp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/munch-stamp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/home/marchel/RiderProjects/munch-stamp" value="3IyKPq6RYHHd0Ss6NuheuK3SGtD" />
+    </persistenceIdMap>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,7 +72,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/BackupPage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/marchel/RiderProjects/munch-stamp/LoyaltyCardListPage.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -70,6 +91,21 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -86,6 +122,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "/usr/lib/jvm/java-17-openjdk-amd64/bin",

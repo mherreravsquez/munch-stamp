@@ -1,6 +1,7 @@
 {
   "AppTitle": "Munch Stamp",
   "BusinessTab": "Negocio",
+  "HomeTab": "Inicio",
   "CardsTab": "Tarjetas",
   "BusinessNameLabel": "Nombre del negocio",
   "BusinessNamePlaceholder": "ej. Café Munch Stamp",

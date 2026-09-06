@@ -2,19 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
-             x:Class="munch_stamp.ScanVisitPage">
+             x:Class="munch_stamp.ScanVisitPage"
+             BackgroundColor="{StaticResource BackgroundDark}">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,*" Padding="20,16">
+        <!-- Header -->
+        <VerticalStackLayout Margin="0,0,0,12">
+            <Label Text="Registrar visita" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+            <Label Text="Escanear QR" FontSize="28" FontAttributes="Bold" />
+        </VerticalStackLayout>
 
-        <Label x:Name="InstructionsLabel" Grid.Row="0" Padding="15" HorizontalOptions="Center" />
+        <!-- Scanner -->
+        <Border Grid.Row="1" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="{StaticResource GlassDark}">
+            <Grid>
+                <!-- Camera (disabled by default) -->
+                <scanner:CameraView x:Name="Scanner"
+                                    CameraEnabled="False"
+                                    VibrationOnDetected="True"
+                                    AimMode="True" />
 
-        <scanner:CameraView x:Name="Scanner"
-                            Grid.Row="1"
-                            CameraEnabled="False"
-                            VibrationOnDetected="True"
-                            AimMode="True"
-                            OnDetectionFinished="OnDetectionFinished" />
+                <!-- Scan frame -->
+                <Border WidthRequest="240" HeightRequest="240" Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 28" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" />
 
+                <!-- Animated line -->
+                <BoxView x:Name="ScanLine" WidthRequest="220" HeightRequest="2" Color="{StaticResource Secondary}" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                <!-- Bottom text -->
+                <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
+                    <Label Text="Apunta al código QR" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
+                    <Label Text="Toca para simular un escaneo" TextColor="{StaticResource TextMuted}" FontSize="12" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+
+                <!-- Simulation touch button -->
+                <Button BackgroundColor="Transparent" Command="{Binding SimulateScanCommand}" />
+            </Grid>
+        </Border>
     </Grid>
-
 </ContentPage>

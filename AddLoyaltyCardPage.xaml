@@ -1,31 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="munch_stamp.AddLoyaltyCardPage">
+             x:Class="munch_stamp.AddLoyaltyCardPage"
+             BackgroundColor="{StaticResource BackgroundDark}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="18">
 
-            <Label x:Name="CustomerNameLabelText" FontAttributes="Bold" />
-            <Entry x:Name="CustomerNameEntry" />
+            <!-- Header -->
+            <VerticalStackLayout Spacing="2" Margin="0,4,0,12">
+                <Label Text="Nueva tarjeta" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+                <Label Text="Crear tarjeta" FontSize="28" FontAttributes="Bold" />
+            </VerticalStackLayout>
 
-            <Label x:Name="CustomerContactLabelText" FontAttributes="Bold" />
-            <Entry x:Name="CustomerContactEntry" />
+            <!-- Form -->
+            <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
+                <VerticalStackLayout Spacing="16">
 
-            <Label x:Name="VisitsRequiredLabelText" FontAttributes="Bold" />
-            <HorizontalStackLayout Spacing="10">
-                <Label x:Name="VisitsRequiredValueLabel" Text="10" VerticalOptions="Center" />
-                <Stepper x:Name="VisitsRequiredStepper"
-                         Minimum="1" Maximum="50" Value="10"
-                         ValueChanged="OnVisitsRequiredChanged" />
-            </HorizontalStackLayout>
+                    <!-- Name -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Nombre del cliente" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="CustomerNameEntry" Placeholder="Ej: Sofía Martínez" BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
 
-            <Label x:Name="RewardLabelText" FontAttributes="Bold" />
-            <Entry x:Name="RewardEntry" />
+                    <!-- Contact -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Contacto (email o teléfono)" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="CustomerContactEntry" Placeholder="ej: sofia@email.com" BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
 
-            <Button x:Name="CreateCardButtonControl" Clicked="OnCreateClicked" Margin="0,20,0,0" />
+                    <!-- Visits required (custom stepper) -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Visitas requeridas" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border Padding="7" BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                <Button Grid.Column="0" Text="−" Clicked="OnDecrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
+                                <Label Grid.Column="1" x:Name="VisitsRequiredValueLabel" Text="10" TextColor="{StaticResource TextPrimary}" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Button Grid.Column="2" Text="＋" Clicked="OnIncrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Reward -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Recompensa" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="RewardEntry" Placeholder="Ej: Café gratis" BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Button Style="{StaticResource PrimaryButton}" Text="Crear tarjeta" Clicked="OnCreateClicked" Margin="0,8,0,0" />
+
+                </VerticalStackLayout>
+            </Border>
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

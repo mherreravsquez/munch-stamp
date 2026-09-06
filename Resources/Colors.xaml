@@ -4,7 +4,15 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="Primary">#ef4651</Color>
+    <Color x:Key="Secondary">#ff7a72</Color>
+    <Color x:Key="BackgroundDark">#120708</Color>
+    <Color x:Key="BackgroundDeep">#260c0f</Color>
+    <Color x:Key="GlassDark">#1d0d10</Color>
+    <Color x:Key="GlassSoft">#31181d</Color>
+    <Color x:Key="LineColor">#43262d</Color>
+    <Color x:Key="TextPrimary">#fff7f5</Color>
+    <Color x:Key="TextMuted">#c9aeaa</Color>
     <Color x:Key="Light">#DFD8F7</Color>
     <Color x:Key="Dark">#2B0B98</Color>
     <Color x:Key="White">White</Color>
@@ -13,6 +21,14 @@
     <Color x:Key="MidGray">#969696</Color>
     <Color x:Key="DarkGray">#505050</Color>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
+    <SolidColorBrush x:Key="BackgroundDeepBrush" Color="{StaticResource BackgroundDeep}"/>
+    <SolidColorBrush x:Key="GlassDarkBrush" Color="{StaticResource GlassDark}"/>
+    <SolidColorBrush x:Key="GlassSoftBrush" Color="{StaticResource GlassSoft}"/>
+    <SolidColorBrush x:Key="LineColorBrush" Color="{StaticResource LineColor}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMuted}"/>
     <SolidColorBrush x:Key="LightBrush" Color="{StaticResource Light}"/>
     <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource Dark}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>

@@ -51,8 +51,7 @@ public partial class BusinessProfilePage : ContentPage
             NameEntry.Text = existing.Name;
             CategoryEntry.Text = existing.Category;
             RewardEntry.Text = existing.DefaultReward;
-            VisitsRequiredStepper.Value = existing.DefaultVisitsRequired;
-            VisitsRequiredValueLabel.Text = existing.DefaultVisitsRequired.ToString(); // was VisitsRequiredLabelText
+            VisitsRequiredValueLabel.Text = existing.DefaultVisitsRequired.ToString();
         }
     }
     
@@ -72,9 +71,21 @@ public partial class BusinessProfilePage : ContentPage
         _currentBusiness.Name = NameEntry.Text;
         _currentBusiness.Category = CategoryEntry.Text;
         _currentBusiness.DefaultReward = RewardEntry.Text;
-        _currentBusiness.DefaultVisitsRequired = (int)VisitsRequiredStepper.Value;
+        _currentBusiness.DefaultVisitsRequired = int.Parse(VisitsRequiredValueLabel.Text);
 
         await _profileService.SaveAsync(_currentBusiness);
         await DisplayAlert("Saved", "Business profile saved.", "OK");
+    }
+    
+    private void OnDecrementVisits(object sender, EventArgs e)
+    {
+        int val = int.Parse(VisitsRequiredValueLabel.Text);
+        if (val > 1) VisitsRequiredValueLabel.Text = (val - 1).ToString();
+    }
+
+    private void OnIncrementVisits(object sender, EventArgs e)
+    {
+        int val = int.Parse(VisitsRequiredValueLabel.Text);
+        if (val < 50) VisitsRequiredValueLabel.Text = (val + 1).ToString();
     }
 }

@@ -2,16 +2,33 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:munch_stamp"
-       x:Class="munch_stamp.AppShell">
+       x:Class="munch_stamp.AppShell"
+       Shell.BackgroundColor="{StaticResource BackgroundDark}"
+       Shell.TabBarBackgroundColor="#0f0507"
+       Shell.TabBarForegroundColor="{StaticResource Secondary}"
+       Shell.TabBarTitleColor="{StaticResource TextPrimary}"
+       Shell.TabBarUnselectedColor="#9e8581"
+       Shell.NavBarIsVisible="False">
 
     <TabBar>
-        <ShellContent x:Name="BusinessTabContent"
-                      ContentTemplate="{DataTemplate local:BusinessProfilePage}" />
+        <ShellContent x:Name="HomeTabContent"
+                      Title="Inicio"
+                      ContentTemplate="{DataTemplate local:HomePage}" />
+
         <ShellContent x:Name="CardsTabContent"
+                      Title="Tarjetas"
                       ContentTemplate="{DataTemplate local:LoyaltyCardListPage}" />
+
         <ShellContent x:Name="ScanTabContent"
+                      Title="Escanear"
                       ContentTemplate="{DataTemplate local:ScanVisitPage}" />
+
+        <ShellContent x:Name="BusinessTabContent"
+                      Title="Negocio"
+                      ContentTemplate="{DataTemplate local:BusinessProfilePage}" />
+        
         <ShellContent x:Name="BackupTabContent"
+                      Title="Backup"
                       ContentTemplate="{DataTemplate local:BackupPage}" />
     </TabBar>
 

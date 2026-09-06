@@ -1,32 +1,76 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="munch_stamp.BusinessProfilePage"
-             Title="Business Profile">
+             Title="Business Profile"
+             BackgroundColor="{StaticResource BackgroundDark}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            
-            <Label x:Name="BusinessNameLabelText" FontAttributes="Bold" />
-            <Entry x:Name="NameEntry" />
+        <VerticalStackLayout Padding="18,10,18,30" Spacing="14">
 
-            <Label x:Name="CategoryLabelText" FontAttributes="Bold" />
-            <Entry x:Name="CategoryEntry" />
+            <!-- HEADER -->
+            <Grid Margin="0,8,0,8">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="MUNCH-STAMP" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" CharacterSpacing="1.5" />
+                    <Label Text="Negocio" TextColor="{StaticResource TextPrimary}" FontSize="29" FontAttributes="Bold" CharacterSpacing="-0.5" />
+                </VerticalStackLayout>
+            </Grid>
 
-            <Label x:Name="VisitsRequiredLabelText" FontAttributes="Bold" />
-            <HorizontalStackLayout Spacing="10">
-                <Label x:Name="VisitsRequiredValueLabel" Text="10" VerticalOptions="Center" />
-                <Stepper x:Name="VisitsRequiredStepper"
-                         Minimum="1" Maximum="50" Value="10"
-                         ValueChanged="OnVisitsRequiredChanged" />
-            </HorizontalStackLayout>
+            <!-- BUSINESS SETTINGS CARD -->
+            <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
+                <VerticalStackLayout Spacing="17">
 
-            <Label x:Name="RewardLabelText" FontAttributes="Bold" />
-            <Entry x:Name="RewardEntry" />
+                    <!-- LANGUAGE -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="IDIOMA / LANGUAGE" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                            <Button Text="Español" Clicked="OnSpanishClicked" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}" BorderWidth="0" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
+                            <Button Text="English" Clicked="OnEnglishClicked" Grid.Column="1" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" BorderColor="{StaticResource LineColor}" BorderWidth="1" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
+                        </Grid>
+                    </VerticalStackLayout>
 
-            <Button x:Name="SaveButton" Clicked="OnSaveClicked" Margin="0,20,0,0" />
+                    <!-- BUSINESS NAME -->
+                    <VerticalStackLayout Spacing="7">
+                        <Label x:Name="BusinessNameLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="NameEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- CATEGORY -->
+                    <VerticalStackLayout Spacing="7">
+                        <Label x:Name="CategoryLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="CategoryEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- VISITS REQUIRED (custom stepper) -->
+                    <VerticalStackLayout Spacing="7">
+                        <Label x:Name="VisitsRequiredLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border Padding="7" BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                <Button Grid.Column="0" Text="−" Clicked="OnDecrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
+                                <Label Grid.Column="1" x:Name="VisitsRequiredValueLabel" Text="10" TextColor="{StaticResource TextPrimary}" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Button Grid.Column="2" Text="＋" Clicked="OnIncrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- REWARD -->
+                    <VerticalStackLayout Spacing="7">
+                        <Label x:Name="RewardLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                            <Entry x:Name="RewardEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- SAVE -->
+                    <Button x:Name="SaveButton" Clicked="OnSaveClicked" Margin="0,4,0,0" Style="{StaticResource PrimaryButton}" />
+
+                </VerticalStackLayout>
+            </Border>
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
