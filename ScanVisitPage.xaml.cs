@@ -1,5 +1,6 @@
 using BarcodeScanning;
 using munch_stamp.Services;
+using System.Linq;
 
 namespace munch_stamp;
 
@@ -78,11 +79,44 @@ public partial class ScanVisitPage : ContentPage
         }
     }
 
-    // Camera detection handler removed — hook up scanning logic here if using camera.
+    // Camera detection handler: processes detected barcodes and registers visits
+    private async void OnDetectionFinished(object sender, OnDetectionFinishedEventArg e)
+    {
+        var results = e?.BarcodeResults;
+        if (results == null || !results.Any())
+            return;
 
+        var firstResult = results.FirstOrDefault();
+        if (firstResult is null) return;
+
+        var qrCode = firstResult.RawValue;
+        var result = await _cardService.RegisterVisitAsync(qrCode);
+
+        if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.Success)
+        {
+            await DisplayAlert("Éxito", $"Visita registrada para {result.Card!.CustomerName}.", "OK");
+        }
+        else if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.TooSoon)
+        {
+            await DisplayAlert("Aviso", "Debes esperar al menos 60 segundos.", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se pudo registrar la visita.", "OK");
+        }
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        // Enable camera when page appears
+        Scanner.CameraEnabled = true;
+    }
 
     protected override void OnDisappearing()
     {
+        // Disable camera and stop animation when leaving
+        Scanner.CameraEnabled = false;
         StopScanAnimation();
         base.OnDisappearing();
     }

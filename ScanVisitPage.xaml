@@ -19,7 +19,8 @@
                 <scanner:CameraView x:Name="Scanner"
                                     CameraEnabled="False"
                                     VibrationOnDetected="True"
-                                    AimMode="True" />
+                                    AimMode="True"
+                                    OnDetectionFinished="OnDetectionFinished" />
 
                 <!-- Scan frame -->
                 <Border WidthRequest="240" HeightRequest="240" Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 28" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -30,7 +31,6 @@
                 <!-- Bottom text -->
                 <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
                     <Label Text="Apunta al código QR" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
-                    <Label Text="Toca para simular un escaneo" TextColor="{StaticResource TextMuted}" FontSize="12" HorizontalTextAlignment="Center" />
                 </VerticalStackLayout>
 
                 <!-- Simulation touch button -->
