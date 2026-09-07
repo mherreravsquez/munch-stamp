@@ -22,12 +22,9 @@ public partial class BusinessProfilePage : ContentPage
         NameEntry.Placeholder = LocalizationService.Get("BusinessNamePlaceholder");
         CategoryLabelText.Text = LocalizationService.Get("CategoryLabel");
         CategoryEntry.Placeholder = LocalizationService.Get("CategoryPlaceholder");
-        VisitsRequiredLabelText.Text = LocalizationService.Get("VisitsRequiredLabel");
-        RewardLabelText.Text = LocalizationService.Get("RewardLabel");
-        RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
         SaveButton.Text = LocalizationService.Get("SaveButton");
     }
-    
+
     private async void OnEnglishClicked(object? sender, EventArgs e) => await ChangeLanguage("en");
     private async void OnSpanishClicked(object? sender, EventArgs e) => await ChangeLanguage("es");
 
@@ -36,15 +33,11 @@ public partial class BusinessProfilePage : ContentPage
         if (code == LocalizationService.CurrentLanguage) return;
 
         await LocalizationService.SetLanguageAsync(code);
-
-        // Update this page's UI immediately
         ApplyTranslations();
 
-        // Update shell/tab titles
         if (Shell.Current is AppShell appShell)
             appShell.UpdateTitles();
 
-        // Optionally inform the user that language changed
         await DisplayAlert(LocalizationService.Get("SavedTitle"), LocalizationService.Get("LanguageChangedMessage"), "OK");
     }
 
@@ -56,42 +49,21 @@ public partial class BusinessProfilePage : ContentPage
             _currentBusiness = existing;
             NameEntry.Text = existing.Name;
             CategoryEntry.Text = existing.Category;
-            RewardEntry.Text = existing.DefaultReward;
-            VisitsRequiredValueLabel.Text = existing.DefaultVisitsRequired.ToString();
         }
-    }
-    
-    private void OnVisitsRequiredChanged(object? sender, ValueChangedEventArgs e)
-    {
-        VisitsRequiredValueLabel.Text = ((int)e.NewValue).ToString();
     }
 
     private async void OnSaveClicked(object? sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(NameEntry.Text))
         {
-            await DisplayAlert("Missing name", "Please enter a business name.", "OK");
+            await DisplayAlert(LocalizationService.Get("MissingNameTitle"), LocalizationService.Get("MissingNameMessage"), "OK");
             return;
         }
 
         _currentBusiness.Name = NameEntry.Text;
         _currentBusiness.Category = CategoryEntry.Text;
-        _currentBusiness.DefaultReward = RewardEntry.Text;
-        _currentBusiness.DefaultVisitsRequired = int.Parse(VisitsRequiredValueLabel.Text);
 
         await _profileService.SaveAsync(_currentBusiness);
-        await DisplayAlert("Saved", "Business profile saved.", "OK");
-    }
-    
-    private void OnDecrementVisits(object sender, EventArgs e)
-    {
-        int val = int.Parse(VisitsRequiredValueLabel.Text);
-        if (val > 1) VisitsRequiredValueLabel.Text = (val - 1).ToString();
-    }
-
-    private void OnIncrementVisits(object sender, EventArgs e)
-    {
-        int val = int.Parse(VisitsRequiredValueLabel.Text);
-        if (val < 50) VisitsRequiredValueLabel.Text = (val + 1).ToString();
+        await DisplayAlert(LocalizationService.Get("SavedTitle"), LocalizationService.Get("SavedMessage"), "OK");
     }
 }

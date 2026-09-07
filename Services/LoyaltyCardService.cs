@@ -59,4 +59,24 @@ public class LoyaltyCardService
             .Where(v => v.LoyaltyCardId == cardId)
             .ToListAsync();
     }
+    
+    public async Task AddManualVisitAsync(string cardId)
+    {
+        var visit = new Visit { LoyaltyCardId = cardId, Note = "Manual entry" };
+        await DatabaseService.Connection.InsertAsync(visit);
+    }
+
+    // Returns false if there was nothing to undo (not an error).
+    public async Task<bool> RemoveLastVisitAsync(string cardId)
+    {
+        var lastVisit = await DatabaseService.Connection.Table<Visit>()
+            .Where(v => v.LoyaltyCardId == cardId)
+            .OrderByDescending(v => v.Timestamp)
+            .FirstOrDefaultAsync();
+
+        if (lastVisit is null) return false;
+
+        await DatabaseService.Connection.DeleteAsync(lastVisit);
+        return true;
+    }
 }

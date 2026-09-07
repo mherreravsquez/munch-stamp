@@ -26,12 +26,25 @@
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Business.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Business.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Colors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Colors.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/LoyaltyCardService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/LoyaltyCardService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/munch-stamp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/munch-stamp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +128,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.ColorSchemeFont",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -171,6 +184,7 @@
       <workItem from="1786319853175" duration="3445000" />
       <workItem from="1786323887718" duration="6003000" />
       <workItem from="1786345206703" duration="1456000" />
+      <workItem from="1788747594699" duration="5589000" />
     </task>
     <servers />
   </component>

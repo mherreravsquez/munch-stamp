@@ -1,3 +1,4 @@
+using QRCoder;
 using munch_stamp.Models;
 using munch_stamp.Services;
 
@@ -5,43 +6,119 @@ namespace munch_stamp;
 
 public partial class LoyaltyCardDetailPage : ContentPage
 {
-    private readonly LoyaltyCard _card;
     private readonly LoyaltyCardService _cardService = new();
+    private LoyaltyCard _card;
 
     public LoyaltyCardDetailPage(LoyaltyCard card)
     {
         InitializeComponent();
         _card = card;
-        BindingContext = card;
-
-        CustomerNameLabel.Text = card.CustomerName;
-        ProgressLabel.Text = card.ProgressText;
-        RewardLabel.Text = card.RewardDescription;
-        ProgressBar.Progress = card.ProgressPercent;
+        ApplyTranslations();
+        RefreshDisplay();
     }
 
-    private async void OnRegisterVisitClicked(object sender, EventArgs e)
+    private void ApplyTranslations()
     {
-        var result = await _cardService.RegisterVisitAsync(_card.QrCodeId);
-        if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.Success)
-        {
-            // Actualizar UI
-            ProgressLabel.Text = result.Card!.ProgressText;
-            ProgressBar.Progress = result.Card.ProgressPercent;
-            await DisplayAlert("Éxito", "Visita registrada.", "OK");
-        }
-        else if (result.Outcome == LoyaltyCardService.VisitRegistrationOutcome.TooSoon)
-        {
-            await DisplayAlert("Aviso", "Debes esperar al menos 60 segundos entre visitas.", "OK");
-        }
+        EyebrowLabel.Text = LocalizationService.Get("CardDetailEyebrow");
+        RegisterVisitButtonControl.Text = LocalizationService.Get("RegisterVisitButton");
+        ShareButton.Text = LocalizationService.Get("ShareButton");
+        UndoVisitButtonControl.Text = LocalizationService.Get("UndoVisitButton");
+        RedeemButton.Text = LocalizationService.Get("RedeemButton");
+        CloseButtonControl.Text = LocalizationService.Get("CloseButton");
+    }
+
+    private void RefreshDisplay()
+    {
+        CustomerNameLabel.Text = _card.CustomerName;
+        ProgressLabel.Text = _card.ProgressText;
+        RewardLabel.Text = _card.RewardDescription;
+        ProgressBar.Progress = _card.ProgressPercent;
+        QrCodeImage.Source = ImageSource.FromStream(() => new MemoryStream(GenerateQrCodePng(_card.QrCodeId)));
+        RedeemButton.IsVisible = RewardService.HasEarnedReward(_card);
+    }
+
+    // The manual-entry fallback: lets the admin add a visit directly,
+    // for cases where scanning isn't possible (camera issue, damaged
+    // QR, etc). No duplicate-window check — this is a deliberate
+    // admin action, not an automated scan.
+    private async void OnRegisterVisitClicked(object? sender, EventArgs e)
+    {
+        await _cardService.AddManualVisitAsync(_card.Id);
+        await ReloadCardAsync();
+
+        if (RewardService.HasEarnedReward(_card))
+            await DisplayAlert(LocalizationService.Get("RewardEarnedTitle"), $"{_card.CustomerName}: {_card.RewardDescription}", "OK");
         else
-        {
-            await DisplayAlert("Error", "No se pudo registrar la visita.", "OK");
-        }
+            await DisplayAlert(LocalizationService.Get("VisitRegisteredTitle"), $"{_card.CustomerName}: {_card.ProgressText}", "OK");
     }
 
-    private async void OnCloseClicked(object sender, EventArgs e)
+    // The other half of the fallback: undo the most recent visit,
+    // for accidental double-scans or manual-entry mistakes.
+    private async void OnUndoVisitClicked(object? sender, EventArgs e)
     {
-        await Navigation.PopModalAsync();
+        bool confirmed = await DisplayAlert(
+            LocalizationService.Get("UndoConfirmTitle"),
+            LocalizationService.Get("UndoConfirmMessage"),
+            "OK", "Cancel");
+        if (!confirmed) return;
+
+        var removed = await _cardService.RemoveLastVisitAsync(_card.Id);
+        if (!removed)
+        {
+            await DisplayAlert(LocalizationService.Get("UndoConfirmTitle"), LocalizationService.Get("NoVisitsToUndoMessage"), "OK");
+            return;
+        }
+
+        await ReloadCardAsync();
+        await DisplayAlert(LocalizationService.Get("UndoConfirmTitle"), LocalizationService.Get("UndoSuccessMessage"), "OK");
+    }
+
+    private async void OnRedeemClicked(object? sender, EventArgs e)
+    {
+        bool confirmed = await DisplayAlert(
+            LocalizationService.Get("RedeemConfirmTitle"),
+            LocalizationService.Get("RedeemConfirmMessage"),
+            "OK", "Cancel");
+        if (!confirmed) return;
+
+        await _cardService.RedeemRewardAsync(_card.Id);
+        await ReloadCardAsync();
+        await DisplayAlert(LocalizationService.Get("RewardEarnedTitle"), LocalizationService.Get("RedeemedMessage"), "OK");
+    }
+
+    private async void OnShareClicked(object? sender, EventArgs e)
+    {
+        var qrBytes = GenerateQrCodePng(_card.QrCodeId);
+        var filePath = Path.Combine(FileSystem.CacheDirectory, $"{SanitizeFileName(_card.CustomerName)}-qr.png");
+        await File.WriteAllBytesAsync(filePath, qrBytes);
+
+        await Share.Default.RequestAsync(new ShareFileRequest
+        {
+            Title = $"{LocalizationService.Get("ShareTitle")} — {_card.CustomerName}",
+            File = new ShareFile(filePath)
+        });
+    }
+
+    private async void OnCloseClicked(object? sender, EventArgs e) => await Navigation.PopAsync();
+
+    // Reloads this specific card fresh from storage so _card (and the
+    // UI) reflects whatever change just happened, instead of trusting
+    // a stale in-memory copy.
+    private async Task ReloadCardAsync()
+    {
+        var allCards = await _cardService.LoadAllAsync();
+        _card = allCards.First(c => c.Id == _card.Id);
+        RefreshDisplay();
+    }
+
+    private static string SanitizeFileName(string input) =>
+        string.Concat(input.Split(Path.GetInvalidFileNameChars()));
+
+    private static byte[] GenerateQrCodePng(string content)
+    {
+        using var generator = new QRCodeGenerator();
+        using var data = generator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
+        var pngQrCode = new PngByteQRCode(data);
+        return pngQrCode.GetGraphic(20);
     }
 }

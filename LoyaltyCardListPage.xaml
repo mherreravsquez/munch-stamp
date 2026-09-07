@@ -15,11 +15,15 @@
         <!-- Header -->
         <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
             <VerticalStackLayout Spacing="2">
-                <Label Text="Fidelización" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-                <Label Text="Tarjetas" FontSize="28" FontAttributes="Bold" />
+                <Label x:Name="EyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+                <Label x:Name="TitleLabel" FontSize="28" FontAttributes="Bold" />
             </VerticalStackLayout>
-            <Border Grid.Column="1" WidthRequest="42" HeightRequest="42" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 15" Padding="0" HorizontalOptions="End" VerticalOptions="Center">
-                <Label Text="＋" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            <!-- Doubles as the add-card entry point (see OnAddCardClicked) -->
+            <Border Grid.Column="1" x:Name="AddCardButton" WidthRequest="42" HeightRequest="42" Padding="0" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 15" HorizontalOptions="End" VerticalOptions="Center">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAddCardClicked" />
+                </Border.GestureRecognizers>
+                <Label Text="＋" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </Border>
         </Grid>
 
@@ -30,8 +34,8 @@
                     <Border Margin="0,0,0,10" Padding="16" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 20">
                         <VerticalStackLayout Spacing="10">
                             <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
-                                <Border WidthRequest="43" HeightRequest="43" StrokeThickness="0" StrokeShape="RoundRectangle 14" BackgroundColor="{StaticResource Primary}">
-                                    <Label Text="{Binding CustomerName, Converter={StaticResource InitialsConverter}}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Border WidthRequest="43" HeightRequest="43" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 14" BackgroundColor="{StaticResource Primary}">
+                                    <Label Text="{Binding CustomerName, Converter={StaticResource InitialsConverter}}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                                 </Border>
                                 <VerticalStackLayout Grid.Column="1" Spacing="2">
                                     <Label Text="{Binding CustomerName}" FontAttributes="Bold" />
@@ -45,9 +49,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-        <!-- Floating add button (could be in footer) -->
-        <Button Grid.Row="1" Style="{StaticResource PrimaryButton}" Text="＋ Añadir tarjeta" 
-                VerticalOptions="End" Margin="0,0,0,12" Clicked="OnAddCardClicked" />
     </Grid>
 </ContentPage>

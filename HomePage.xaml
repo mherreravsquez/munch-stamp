@@ -17,20 +17,17 @@
             <!-- Header -->
             <Grid ColumnDefinitions="*,Auto">
                 <VerticalStackLayout Spacing="2">
-                    <Label Text="Munch-Stamp" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-                    <Label Text="Tu negocio" FontSize="28" FontAttributes="Bold" />
+                    <Label x:Name="HomeEyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+                    <Label x:Name="HomeTitleLabel" FontSize="28" FontAttributes="Bold" />
                 </VerticalStackLayout>
-                <Border Grid.Column="1" WidthRequest="42" HeightRequest="42" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 15" Padding="0" HorizontalOptions="End" VerticalOptions="Center">
-                    <Label Text="⌁" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                </Border>
             </Grid>
 
             <!-- Hero -->
             <Border Padding="20" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="☻ MUNCH" FontAttributes="Bold" FontSize="16" />
-                    <Label Text="Premia a tus clientes.&#10;Haz que vuelvan." FontSize="25" FontAttributes="Bold" LineBreakMode="WordWrap" />
-                    <Label Text="Administra tus tarjetas de fidelización desde un solo lugar." TextColor="{StaticResource TextMuted}" FontSize="13" />
+                    <Label x:Name="HeroBrandLabel" FontAttributes="Bold" FontSize="16" />
+                    <Label x:Name="HeroHeadlineLabel" FontSize="25" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                    <Label x:Name="HeroSubtitleLabel" TextColor="{StaticResource TextMuted}" FontSize="13" />
                 </VerticalStackLayout>
             </Border>
 
@@ -38,22 +35,22 @@
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Border Padding="16" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout>
-                        <Label Text="24" FontSize="26" FontAttributes="Bold" />
-                        <Label Text="Clientes activos" TextColor="{StaticResource TextMuted}" FontSize="11" />
+                        <Label x:Name="ActiveCustomersValueLabel" FontSize="26" FontAttributes="Bold" />
+                        <Label x:Name="ActiveCustomersLabelText" TextColor="{StaticResource TextMuted}" FontSize="11" />
                     </VerticalStackLayout>
                 </Border>
                 <Border Grid.Column="1" Padding="16" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout>
-                        <Label Text="87" FontSize="26" FontAttributes="Bold" />
-                        <Label Text="Visitas registradas" TextColor="{StaticResource TextMuted}" FontSize="11" />
+                        <Label x:Name="VisitsRecordedValueLabel" FontSize="26" FontAttributes="Bold" />
+                        <Label x:Name="VisitsRecordedLabelText" TextColor="{StaticResource TextMuted}" FontSize="11" />
                     </VerticalStackLayout>
                 </Border>
             </Grid>
 
             <!-- Recent activity -->
             <Grid ColumnDefinitions="*,Auto" Margin="0,4,0,0">
-                <Label Text="Actividad reciente" FontAttributes="Bold" FontSize="15" />
-                <Label Grid.Column="1" Text="Ver todo" TextColor="{StaticResource Secondary}" FontSize="12" />
+                <Label x:Name="RecentActivityLabelText" FontAttributes="Bold" FontSize="15" />
+                <Label Grid.Column="1" x:Name="ViewAllLabelText" TextColor="{StaticResource Secondary}" FontSize="12" />
             </Grid>
 
             <!-- Recent cards list (max 5) -->

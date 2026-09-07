@@ -21,7 +21,7 @@
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
 
-      
+
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
     </PropertyGroup>
 
@@ -43,32 +43,30 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
         <PackageReference Include="BarcodeScanning.Native.Maui" Version="1.5.8" />
         <PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
-        
+
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
-        
+
         <PackageReference Include="QRCoder" Version="1.8.0" />
-        
+
         <PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
-        
+
         <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="LoyaltyCardListPage.cs" />
-      <Compile Update="AddLoyaltyCardPager.xaml.cs">
-        <DependentUpon>AddLoyaltyCardPage.xaml</DependentUpon>
-      </Compile>
-      <Compile Remove="BackupPage.cs" />
-      <Compile Update="HomePage.xaml.cs">
-        <DependentUpon>MainPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <Compile Update="AddLoyaltyCardPage.xaml.cs">
+            <DependentUpon>AddLoyaltyCardPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="HomePage.xaml.cs">
+            <DependentUpon>HomePage.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="HomePage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
+        <MauiXaml Update="HomePage.xaml">
+            <SubType>Designer</SubType>
+        </MauiXaml>
     </ItemGroup>
 
 

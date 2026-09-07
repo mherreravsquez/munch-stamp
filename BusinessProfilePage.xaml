@@ -44,26 +44,6 @@
                         </Border>
                     </VerticalStackLayout>
 
-                    <!-- VISITS REQUIRED (custom stepper) -->
-                    <VerticalStackLayout Spacing="7">
-                        <Label x:Name="VisitsRequiredLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                        <Border Padding="7" BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14">
-                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
-                                <Button Grid.Column="0" Text="−" Clicked="OnDecrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
-                                <Label Grid.Column="1" x:Name="VisitsRequiredValueLabel" Text="10" TextColor="{StaticResource TextPrimary}" FontSize="18" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                                <Button Grid.Column="2" Text="＋" Clicked="OnIncrementVisits" BackgroundColor="{StaticResource GlassSoft}" TextColor="White" CornerRadius="11" WidthRequest="36" HeightRequest="36" FontSize="20" />
-                            </Grid>
-                        </Border>
-                    </VerticalStackLayout>
-
-                    <!-- REWARD -->
-                    <VerticalStackLayout Spacing="7">
-                        <Label x:Name="RewardLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
-                            <Entry x:Name="RewardEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
-                        </Border>
-                    </VerticalStackLayout>
-
                     <!-- SAVE -->
                     <Button x:Name="SaveButton" Clicked="OnSaveClicked" Margin="0,4,0,0" Style="{StaticResource PrimaryButton}" />
 

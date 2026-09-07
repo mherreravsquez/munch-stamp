@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -14,7 +14,7 @@
     <Color x:Key="TextPrimary">#fff7f5</Color>
     <Color x:Key="TextMuted">#c9aeaa</Color>
     <Color x:Key="Light">#DFD8F7</Color>
-    <Color x:Key="Dark">#2B0B98</Color>
+    <Color x:Key="Dark">#120708</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="LightGray">#E5E5E1</Color>
@@ -46,5 +46,14 @@
     <Color x:Key="Blue100Accent">#3E8EED</Color>
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
+
+    <!-- Wallpaper mesh-gradient palette (source colors baked into
+         Resources/Images/wallpaper_bg.png — see gen_wallpaper.py).
+         Kept here for reference if the wallpaper is ever regenerated
+         or reused as flat accent colors elsewhere. -->
+    <Color x:Key="WallpaperBg">#120708</Color>
+    <Color x:Key="WallpaperGlow">#2a1013</Color>
+    <Color x:Key="WallpaperRed">#7a1c24</Color>
+    <Color x:Key="WallpaperOchre">#8a5a2c</Color>
 
 </ResourceDictionary>

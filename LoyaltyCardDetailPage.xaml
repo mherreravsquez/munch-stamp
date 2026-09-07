@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="munch_stamp.LoyaltyCardDetailPage"
-             BackgroundColor="#80000000">
+             BackgroundColor="#80000000"
+             BackgroundImageSource="{x:Null}">
 
-    <Border Margin="16,100,16,30" 
+    <ScrollView>
+    <Border Margin="16,60,16,30"
             BackgroundColor="{StaticResource GlassDark}"
             Stroke="{StaticResource LineColor}"
             StrokeThickness="1"
@@ -12,9 +14,8 @@
             Padding="20">
         <VerticalStackLayout Spacing="16">
 
-            <!-- Cabecera con botón cerrar -->
             <Grid ColumnDefinitions="*,Auto">
-                <Label Text="Tarjeta de fidelización" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+                <Label x:Name="EyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
                 <Button Grid.Column="1" Text="✕" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" FontSize="18" Clicked="OnCloseClicked" />
             </Grid>
 
@@ -24,10 +25,20 @@
 
             <ProgressBar x:Name="ProgressBar" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource BackgroundDeep}" HeightRequest="8" />
 
-            <Button Style="{StaticResource PrimaryButton}" Text="Registrar visita" Clicked="OnRegisterVisitClicked" />
+            <Image x:Name="QrCodeImage" HeightRequest="180" WidthRequest="180" HorizontalOptions="Center" BackgroundColor="White" Margin="0,8" />
 
-            <Button Text="Cerrar" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" Clicked="OnCloseClicked" />
+            <Button Style="{StaticResource PrimaryButton}" x:Name="RegisterVisitButtonControl" Clicked="OnRegisterVisitClicked" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0" x:Name="ShareButton" BackgroundColor="{StaticResource GlassSoft}" Clicked="OnShareClicked" />
+                <Button Grid.Column="1" x:Name="UndoVisitButtonControl" BackgroundColor="{StaticResource GlassSoft}" Clicked="OnUndoVisitClicked" />
+            </Grid>
+
+            <Button x:Name="RedeemButton" IsVisible="False" Clicked="OnRedeemClicked" />
+
+            <Button x:Name="CloseButtonControl" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" Clicked="OnCloseClicked" />
 
         </VerticalStackLayout>
     </Border>
+    </ScrollView>
 </ContentPage>

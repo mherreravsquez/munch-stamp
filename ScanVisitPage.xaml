@@ -8,8 +8,8 @@
     <Grid RowDefinitions="Auto,*" Padding="20,16">
         <!-- Header -->
         <VerticalStackLayout Margin="0,0,0,12">
-            <Label Text="Registrar visita" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-            <Label Text="Escanear QR" FontSize="28" FontAttributes="Bold" />
+            <Label x:Name="ScanEyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
+            <Label x:Name="ScanTitleLabel" FontSize="28" FontAttributes="Bold" />
         </VerticalStackLayout>
 
         <!-- Scanner -->
@@ -30,7 +30,7 @@
 
                 <!-- Bottom text -->
                 <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
-                    <Label Text="Apunta al código QR" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
+                    <Label x:Name="ScanFrameHintLabel" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
                 </VerticalStackLayout>
             </Grid>
         </Border>

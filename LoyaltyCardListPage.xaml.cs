@@ -10,27 +10,42 @@ public partial class LoyaltyCardListPage : ContentPage
     public LoyaltyCardListPage()
     {
         InitializeComponent();
-        Loaded += OnPageLoaded;
+        ApplyTranslations();
+        Loaded += async (s, e) => await RefreshList();
     }
 
-    private async void OnPageLoaded(object? sender, EventArgs e)
+    private void ApplyTranslations()
+    {
+        EyebrowLabel.Text = LocalizationService.Get("LoyaltyEyebrow");
+        TitleLabel.Text = LocalizationService.Get("CardsTab");
+        // The "+" header button has no visible text, so give screen
+        // readers a label describing what it does.
+        SemanticProperties.SetDescription(AddCardButton, LocalizationService.Get("AddCardButton"));
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await RefreshList();
+    }
+
+    private async Task RefreshList()
     {
         var cards = await _cardService.LoadAllAsync();
-        CardsCollectionView.ItemsSource = cards;
+        CardsCollectionView.ItemsSource = cards.Where(c => c.IsActive).ToList();
+    }
+
+    private async void OnAddCardClicked(object? sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new AddLoyaltyCardPage());
     }
 
     private async void OnCardSelected(object? sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is LoyaltyCard card)
+        if (e.CurrentSelection.FirstOrDefault() is LoyaltyCard selectedCard)
         {
-            var detailPage = new LoyaltyCardDetailPage(card);
-            await Navigation.PushModalAsync(detailPage);
-            ((CollectionView)sender).SelectedItem = null;
+            await Navigation.PushAsync(new LoyaltyCardDetailPage(selectedCard));
+            CardsCollectionView.SelectedItem = null;
         }
-    }
-
-    private async void OnAddCardClicked(object? sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new AddLoyaltyCardPage());
     }
 }

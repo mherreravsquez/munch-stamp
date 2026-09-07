@@ -10,8 +10,22 @@ public partial class AddLoyaltyCardPage : ContentPage
     public AddLoyaltyCardPage()
     {
         InitializeComponent();
-        // Inicializar el valor mostrado
+        ApplyTranslations();
         VisitsRequiredValueLabel.Text = "10";
+    }
+
+    private void ApplyTranslations()
+    {
+        EyebrowLabel.Text = LocalizationService.Get("AddCardEyebrow");
+        TitleLabel.Text = LocalizationService.Get("NewLoyaltyCardTitle");
+        CustomerNameLabelText.Text = LocalizationService.Get("CustomerNameLabel");
+        CustomerNameEntry.Placeholder = LocalizationService.Get("CustomerNamePlaceholder");
+        CustomerContactLabelText.Text = LocalizationService.Get("CustomerContactLabel");
+        CustomerContactEntry.Placeholder = LocalizationService.Get("CustomerContactPlaceholder");
+        VisitsRequiredLabelText.Text = LocalizationService.Get("VisitsRequiredLabel");
+        RewardLabelText.Text = LocalizationService.Get("RewardLabel");
+        RewardEntry.Placeholder = LocalizationService.Get("RewardPlaceholder");
+        CreateButton.Text = LocalizationService.Get("CreateCardButton");
     }
 
     private void OnDecrementVisits(object sender, EventArgs e)
@@ -30,7 +44,10 @@ public partial class AddLoyaltyCardPage : ContentPage
     {
         if (string.IsNullOrWhiteSpace(CustomerNameEntry.Text))
         {
-            await DisplayAlert("Error", "El nombre del cliente es obligatorio.", "OK");
+            await DisplayAlert(
+                LocalizationService.Get("ErrorTitle"),
+                LocalizationService.Get("CustomerNameRequiredMessage"),
+                "OK");
             return;
         }
 
@@ -44,7 +61,10 @@ public partial class AddLoyaltyCardPage : ContentPage
         };
 
         await _cardService.AddAsync(card);
-        await DisplayAlert("Éxito", "Tarjeta creada correctamente.", "OK");
+        await DisplayAlert(
+            LocalizationService.Get("SuccessTitle"),
+            LocalizationService.Get("CardCreatedMessage"),
+            "OK");
         await Navigation.PopAsync();
     }
 }
