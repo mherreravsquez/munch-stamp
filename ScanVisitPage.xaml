@@ -19,7 +19,7 @@
                 <scanner:CameraView x:Name="Scanner"
                                     CameraEnabled="False"
                                     VibrationOnDetected="True"
-                                    AimMode="True"
+                                    AimMode="False"
                                     OnDetectionFinished="OnDetectionFinished" />
 
                 <!-- Scan frame -->

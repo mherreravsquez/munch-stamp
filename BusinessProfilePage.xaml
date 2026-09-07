@@ -11,7 +11,6 @@
             <!-- HEADER -->
             <Grid Margin="0,8,0,8">
                 <VerticalStackLayout Spacing="2">
-                    <Label Text="MUNCH-STAMP" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" CharacterSpacing="1.5" />
                     <Label Text="Negocio" TextColor="{StaticResource TextPrimary}" FontSize="29" FontAttributes="Bold" CharacterSpacing="-0.5" />
                 </VerticalStackLayout>
             </Grid>

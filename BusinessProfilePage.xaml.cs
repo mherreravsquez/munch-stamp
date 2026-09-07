@@ -36,10 +36,16 @@ public partial class BusinessProfilePage : ContentPage
         if (code == LocalizationService.CurrentLanguage) return;
 
         await LocalizationService.SetLanguageAsync(code);
-        await DisplayAlert(
-            LocalizationService.Get("SavedTitle"),
-            LocalizationService.Get("RestartNoticeMessage"),
-            "OK");
+
+        // Update this page's UI immediately
+        ApplyTranslations();
+
+        // Update shell/tab titles
+        if (Shell.Current is AppShell appShell)
+            appShell.UpdateTitles();
+
+        // Optionally inform the user that language changed
+        await DisplayAlert(LocalizationService.Get("SavedTitle"), LocalizationService.Get("LanguageChangedMessage"), "OK");
     }
 
     private async void OnPageLoaded(object? sender, EventArgs e)

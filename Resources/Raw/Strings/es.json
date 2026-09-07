@@ -1,7 +1,7 @@
 {
   "AppTitle": "Munch Stamp",
-  "BusinessTab": "Negocio",
   "HomeTab": "Inicio",
+  "BusinessTab": "Tu Negocio",
   "CardsTab": "Tarjetas",
   "BusinessNameLabel": "Nombre del negocio",
   "BusinessNamePlaceholder": "ej. Café Munch Stamp",
@@ -17,6 +17,7 @@
   "MissingNameMessage": "Por favor ingresa el nombre del negocio.",
   "LanguageLabel": "Idioma",
   "RestartNoticeMessage": "Reinicia la app para aplicar completamente el cambio de idioma.",
+  "LanguageChangedMessage": "Idioma cambiado. Interfaz actualizada." ,
   "LoyaltyCardsTitle": "Tarjetas de fidelidad",
   "AddCardButton": "+ Agregar tarjeta",
   "NewLoyaltyCardTitle": "Nueva tarjeta de fidelidad",

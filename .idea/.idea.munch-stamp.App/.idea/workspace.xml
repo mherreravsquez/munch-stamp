@@ -26,8 +26,12 @@
   <component name="ChangeListManager">
     <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
