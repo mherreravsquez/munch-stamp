@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="munch_stamp.Controls.LoyaltyCardView"
+             WidthRequest="600" HeightRequest="840">
+    <Grid>
+        <!-- Shadow layer -->
+        <Border BackgroundColor="Black" Opacity="0.2"
+                TranslationX="0" TranslationY="8" ZIndex="-1" StrokeShape="RoundRectangle 32" />
+        
+        <!-- Main card -->
+        <Border x:Name="CardBorder" StrokeThickness="0" StrokeShape="RoundRectangle 32"
+                Padding="28,24">
+            <Border.Background>
+                <LinearGradientBrush x:Name="GradientBrush" StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#1a1a2e" />
+                    <GradientStop Offset="0.5" Color="#6c5ce7" />
+                    <GradientStop Offset="1" Color="#fd79a8" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid RowDefinitions="Auto,*,Auto">
+                <!-- Top: business name + logo -->
+                <Grid ColumnDefinitions="*,Auto" Grid.Row="0" Margin="0,0,0,12">
+                    <VerticalStackLayout>
+                        <Label Text="LOYALTY" FontSize="12" FontAttributes="Bold"
+                               TextColor="White" Opacity="0.6" />
+                        <Label x:Name="BusinessNameLabel" Text="Business"
+                               FontSize="24" FontAttributes="Bold" TextColor="White" />
+                    </VerticalStackLayout>
+                    
+                <!-- Bussines icon/logo -->
+                    <Border Grid.Column="1" WidthRequest="44" HeightRequest="44"
+                            BackgroundColor="White" Opacity="0.12" StrokeShape="RoundRectangle 14"
+                            HorizontalOptions="End" VerticalOptions="Center">
+                        <Label Text="✦" FontSize="22" TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+
+                <!-- Center: QR code -->
+                <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Border BackgroundColor="White" Padding="18" StrokeShape="RoundRectangle 24"
+                            WidthRequest="190" HeightRequest="190">
+                        <Image x:Name="QrCodeImage" Source="qr.png" Aspect="AspectFit" />
+                    </Border>
+                </Grid>
+
+                <!-- Bottom: customer name + meta -->
+                <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,12,0,0">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="MEMBER" FontSize="10" FontAttributes="Bold"
+                               TextColor="White" Opacity="0.5" />
+                        <Label x:Name="CustomerNameLabel" Text="Customer"
+                               FontSize="20" FontAttributes="Bold" TextColor="White" />
+                        
+                <!-- This will be to display the time the customer recived his car-->
+                        <Label Text="joined 2026" FontSize="12"
+                               TextColor="White" Opacity="0.5" />
+                    </VerticalStackLayout>
+                <!-- This will be the customer ID (qr id) -->
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                        <Label Text="•••• 8842" FontSize="14" TextColor="White"
+                               Opacity="0.5" FontFamily="Monospace" />
+                        
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

@@ -27,7 +27,20 @@ public static class DatabaseService
         _connection = new SQLiteAsyncConnection(dbPath);
 
         await _connection.CreateTableAsync<Business>();
+        
+        // Migration: add color columns if they don't exist
+        var columns = new[] { "CardBackgroundColor", "CardGradient1Color", "CardGradient2Color" };
+        foreach (var col in columns)
+        {
+            var exists = await _connection.ExecuteScalarAsync<int>(
+                $"SELECT COUNT(*) FROM pragma_table_info('Business') WHERE name = '{col}'");
+            if (exists == 0)
+                await _connection.ExecuteAsync($"ALTER TABLE Business ADD COLUMN {col} TEXT");
+        }
+        
         await _connection.CreateTableAsync<LoyaltyCard>();
         await _connection.CreateTableAsync<Visit>();
     }
+    
+    
 }

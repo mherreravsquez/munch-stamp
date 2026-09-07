@@ -82,5 +82,10 @@
     "UndoConfirmTitle": "¿Deshacer última visita?",
     "UndoConfirmMessage": "Esto elimina la visita más reciente registrada para esta tarjeta.",
     "NoVisitsToUndoMessage": "Esta tarjeta no tiene visitas para deshacer.",
-    "UndoSuccessMessage": "Última visita eliminada."
+    "UndoSuccessMessage": "Última visita eliminada.",
+    "BusinessMissingMessage": "No se encontró el perfil del negocio. Guarda tus datos antes de compartir.",
+    "CardDesignLabel": "Diseño de tarjeta",
+    "BackgroundColorLabel": "Fondo",
+    "Gradient1Label": "Gradiente 1",
+    "Gradient2Label": "Gradiente 2"
 }

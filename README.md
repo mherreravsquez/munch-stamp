@@ -4,7 +4,7 @@ An open-source loyalty card application for small businesses.
 
 Munch-Stamp allows businesses to create virtual loyalty cards for their customers, generate QR codes, register visits, manage rewards, and back up their data.
 
-The project is also a **learning project** focused on learning mobile and cross-platform application development using technologies that are familiar to the developer.
+This repository is both a practical app and a learning project focused on building cross-platform mobile apps with .NET MAUI.
 
 ---
 
@@ -20,6 +20,11 @@ The project is also a **learning project** focused on learning mobile and cross-
 - Local backup and restore (share sheet + save to device)
 - Generic business support
 - English and Spanish localization
+
+Notes about current implementation state
+- Color settings for business cards are currently edited as hex text inputs in the Business profile page (a color picker UI is planned but not yet integrated).
+- Business logo upload is not implemented yet (the Business model currently does not store a logo path or image).
+- Each loyalty card contains a `QrCodeId` property used as the QR payload; customer-facing QR scanning uses this id.
 
 ---
 
@@ -81,14 +86,14 @@ Each loyalty card has a separate `QrCodeId`. The QR code contains only this rand
 | Status | Milestone |
 |--------|---|
 | ✅      | Project setup |
-| ✅      | Business profile |
+| ✅      | Business profile (basic, color by hex input) |
 | ✅      | Loyalty cards |
 | ✅      | English / Spanish localization |
-| ✅      | QR codes |
+| ✅      | QR codes (QrCodeId per card) |
 | ✅      | Visit registration |
 | ✅      | Rewards |
 | ✅      | SQLite persistence |
-| ✅      | Native sharing |
+| ✅      | Native sharing (image sharing implemented) |
 | ✅      | Local backup & restore |
 | ⬜      | Customer interface |
 | ⬜      | Packaging and releases |
@@ -131,3 +136,12 @@ Contributions, suggestions, and improvements are welcome.
 ## License
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Next to add
+
+- add input for business logo in the business profile; this will be added to the loyalty cards
+- add customers id (qr id) to the loyalty cards
+- add colorpicker instead of hex code input text in the business profile
+- improve app ui (button feedback on press, some text clarity, fixes for UI errors such as when sharing a card the card shows itself behind the LoyaltyCardDetailPage, etc.)

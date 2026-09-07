@@ -82,5 +82,10 @@
     "UndoConfirmTitle": "Undo last visit?",
     "UndoConfirmMessage": "This removes the most recently registered visit for this card.",
     "NoVisitsToUndoMessage": "This card has no visits to undo.",
-    "UndoSuccessMessage": "Last visit removed."
+    "UndoSuccessMessage": "Last visit removed.",
+    "BusinessMissingMessage": "Business profile not found. Please save your business details first.",
+    "CardDesignLabel": "Card Design",
+    "BackgroundColorLabel": "Background",
+    "Gradient1Label": "Gradient 1",
+    "Gradient2Label": "Gradient 2"
 }

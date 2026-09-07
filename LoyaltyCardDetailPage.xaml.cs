@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using QRCoder;
 using munch_stamp.Models;
 using munch_stamp.Services;
@@ -37,10 +38,6 @@ public partial class LoyaltyCardDetailPage : ContentPage
         RedeemButton.IsVisible = RewardService.HasEarnedReward(_card);
     }
 
-    // The manual-entry fallback: lets the admin add a visit directly,
-    // for cases where scanning isn't possible (camera issue, damaged
-    // QR, etc). No duplicate-window check — this is a deliberate
-    // admin action, not an automated scan.
     private async void OnRegisterVisitClicked(object? sender, EventArgs e)
     {
         await _cardService.AddManualVisitAsync(_card.Id);
@@ -52,8 +49,6 @@ public partial class LoyaltyCardDetailPage : ContentPage
             await DisplayAlert(LocalizationService.Get("VisitRegisteredTitle"), $"{_card.CustomerName}: {_card.ProgressText}", "OK");
     }
 
-    // The other half of the fallback: undo the most recent visit,
-    // for accidental double-scans or manual-entry mistakes.
     private async void OnUndoVisitClicked(object? sender, EventArgs e)
     {
         bool confirmed = await DisplayAlert(
@@ -88,22 +83,66 @@ public partial class LoyaltyCardDetailPage : ContentPage
 
     private async void OnShareClicked(object? sender, EventArgs e)
     {
-        var qrBytes = GenerateQrCodePng(_card.QrCodeId);
-        var filePath = Path.Combine(FileSystem.CacheDirectory, $"{SanitizeFileName(_card.CustomerName)}-qr.png");
-        await File.WriteAllBytesAsync(filePath, qrBytes);
-
-        await Share.Default.RequestAsync(new ShareFileRequest
+        var business = await new BusinessProfileService().LoadAsync();
+        if (business is null)
         {
-            Title = $"{LocalizationService.Get("ShareTitle")} — {_card.CustomerName}",
-            File = new ShareFile(filePath)
-        });
+            await DisplayAlert(LocalizationService.Get("Error"),
+                LocalizationService.Get("BusinessMissingMessage"), "OK");
+            return;
+        }
+
+        var qrBytes = GenerateQrCodePng(_card.QrCodeId);
+        var qrImageSource = ImageSource.FromStream(() => new MemoryStream(qrBytes));
+
+        var cardView = new Controls.LoyaltyCardView
+        {
+            Business = business,
+            CustomerName = _card.CustomerName,
+            QrCodeImageSource = qrImageSource
+        };
+
+        CardRenderTarget.Content = cardView;
+        CardRenderTarget.IsVisible = true;
+
+        try
+        {
+            // Ensure the render target is laid out and rendered before capturing.
+            // Some platforms require a layout/render pass; give the UI a moment.
+            CardRenderTarget.ForceLayout();
+            await Task.Yield();
+            await Task.Delay(250);
+
+            // CardRenderTarget.CaptureAsync may return an IScreenshotResult in some MAUI versions.
+            var screenshotResult = await CardRenderTarget.CaptureAsync();
+            if (screenshotResult is null) return;
+
+            using var stream = await screenshotResult.OpenReadAsync();
+            if (stream is null) return;
+
+            var fileName = $"{SanitizeFileName(_card.CustomerName)}-card.png";
+            var filePath = Path.Combine(FileSystem.CacheDirectory, fileName);
+            using var fileStream = File.Create(filePath);
+            await stream.CopyToAsync(fileStream);
+
+            await Share.Default.RequestAsync(new ShareFileRequest
+            {
+                Title = $"{LocalizationService.Get("ShareTitle")} — {_card.CustomerName}",
+                File = new ShareFile(filePath)
+            });
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert(LocalizationService.Get("Error"), ex.Message, "OK");
+        }
+        finally
+        {
+            CardRenderTarget.Content = null;
+            CardRenderTarget.IsVisible = false;
+        }
     }
 
     private async void OnCloseClicked(object? sender, EventArgs e) => await Navigation.PopAsync();
 
-    // Reloads this specific card fresh from storage so _card (and the
-    // UI) reflects whatever change just happened, instead of trusting
-    // a stale in-memory copy.
     private async Task ReloadCardAsync()
     {
         var allCards = await _cardService.LoadAllAsync();

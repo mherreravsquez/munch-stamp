@@ -8,46 +8,62 @@
     <ScrollView>
         <VerticalStackLayout Padding="18,10,18,30" Spacing="14">
 
-            <!-- HEADER -->
             <Grid Margin="0,8,0,8">
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="Negocio" TextColor="{StaticResource TextPrimary}" FontSize="29" FontAttributes="Bold" CharacterSpacing="-0.5" />
-                </VerticalStackLayout>
+               <VerticalStackLayout Spacing="2">
+                   <Label Text="Negocio" TextColor="{StaticResource TextPrimary}" FontSize="29" FontAttributes="Bold" CharacterSpacing="-0.5" />
+               </VerticalStackLayout>
             </Grid>
 
-            <!-- BUSINESS SETTINGS CARD -->
             <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
-                <VerticalStackLayout Spacing="17">
+               <VerticalStackLayout Spacing="17">
 
-                    <!-- LANGUAGE -->
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="IDIOMA / LANGUAGE" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
-                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
-                            <Button Text="Español" Clicked="OnSpanishClicked" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}" BorderWidth="0" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
-                            <Button Text="English" Clicked="OnEnglishClicked" Grid.Column="1" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" BorderColor="{StaticResource LineColor}" BorderWidth="1" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
-                        </Grid>
-                    </VerticalStackLayout>
+                   <VerticalStackLayout Spacing="8">
+                       <Label Text="IDIOMA / LANGUAGE" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
+                       <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                           <Button Text="Español" Clicked="OnSpanishClicked" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}" BorderWidth="0" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
+                           <Button Text="English" Clicked="OnEnglishClicked" Grid.Column="1" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" BorderColor="{StaticResource LineColor}" BorderWidth="1" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
+                       </Grid>
+                   </VerticalStackLayout>
 
-                    <!-- BUSINESS NAME -->
-                    <VerticalStackLayout Spacing="7">
-                        <Label x:Name="BusinessNameLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
-                            <Entry x:Name="NameEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
-                        </Border>
-                    </VerticalStackLayout>
+                   <VerticalStackLayout Spacing="7">
+                       <Label x:Name="BusinessNameLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                       <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                           <Entry x:Name="NameEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
+                       </Border>
+                   </VerticalStackLayout>
 
-                    <!-- CATEGORY -->
-                    <VerticalStackLayout Spacing="7">
-                        <Label x:Name="CategoryLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                        <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
-                            <Entry x:Name="CategoryEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
-                        </Border>
-                    </VerticalStackLayout>
+                   <VerticalStackLayout Spacing="7">
+                       <Label x:Name="CategoryLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
+                       <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                           <Entry x:Name="CategoryEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
+                       </Border>
+                   </VerticalStackLayout>
 
-                    <!-- SAVE -->
-                    <Button x:Name="SaveButton" Clicked="OnSaveClicked" Margin="0,4,0,0" Style="{StaticResource PrimaryButton}" />
+                   <VerticalStackLayout Spacing="12" Margin="0,12,0,0">
+                       <Label x:Name="CardDesignLabelText" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
 
-                </VerticalStackLayout>
+                       <VerticalStackLayout Spacing="8">
+                           <Label x:Name="BackgroundColorLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                           <Entry x:Name="BgColorEntry" Text="#1a1a2e" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="44" />
+                       </VerticalStackLayout>
+
+                       <VerticalStackLayout Spacing="8">
+                           <Label x:Name="Gradient1LabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                           <Entry x:Name="Grad1ColorEntry" Text="#6c5ce7" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="44" />
+                       </VerticalStackLayout>
+
+                       <VerticalStackLayout Spacing="8">
+                           <Label x:Name="Gradient2LabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                           <Entry x:Name="Grad2ColorEntry" Text="#fd79a8" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="44" />
+                       </VerticalStackLayout>
+                   </VerticalStackLayout>
+
+                   <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                       <Button x:Name="PreviewButton" Clicked="OnPreviewClicked" Text="Preview" Grid.Column="0" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" HeightRequest="44" />
+                       <Button x:Name="SaveButton" Clicked="OnSaveClicked" Grid.Column="1" Margin="0,4,0,0" Style="{StaticResource PrimaryButton}" HeightRequest="44" />
+                   </Grid>
+
+               </VerticalStackLayout>
             </Border>
 
         </VerticalStackLayout>
