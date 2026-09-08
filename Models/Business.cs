@@ -13,4 +13,6 @@ public class Business
     public string CardBackgroundColor { get; set; } = "#1a1a2e";
     public string CardGradient1Color { get; set; } = "#6c5ce7";
     public string CardGradient2Color { get; set; } = "#fd79a8";
+    
+    public byte[]? LogoImageBytes { get; set; }
 }

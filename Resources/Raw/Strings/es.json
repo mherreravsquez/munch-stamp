@@ -87,5 +87,10 @@
     "CardDesignLabel": "Diseño de tarjeta",
     "BackgroundColorLabel": "Fondo",
     "Gradient1Label": "Gradiente 1",
-    "Gradient2Label": "Gradiente 2"
+    "Gradient2Label": "Gradiente 2",
+    "BusinessLogoLabel": "LOGO",
+    "ChangeLogoButton": "Cambiar logo",
+    "RemoveLogoButton": "Quitar logo",
+    "PreviewButton": "Vista previa",
+    "JoinedPrefix": "Miembro desde"
 }

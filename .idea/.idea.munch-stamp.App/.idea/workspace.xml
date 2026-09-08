@@ -24,17 +24,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Business.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Business.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/DatabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/DatabaseService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +165,8 @@
       <workItem from="1786323887718" duration="6003000" />
       <workItem from="1786345206703" duration="1456000" />
       <workItem from="1788747594699" duration="7027000" />
-      <workItem from="1788754870734" duration="2943000" />
+      <workItem from="1788754870734" duration="3165000" />
+      <workItem from="1788828542158" duration="6453000" />
     </task>
     <servers />
   </component>

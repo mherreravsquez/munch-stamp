@@ -22,9 +22,10 @@ This repository is both a practical app and a learning project focused on buildi
 - English and Spanish localization
 
 Notes about current implementation state
-- Color settings for business cards are currently edited as hex text inputs in the Business profile page (a color picker UI is planned but not yet integrated).
-- Business logo upload is not implemented yet (the Business model currently does not store a logo path or image).
+- Business logo support has been added to the Business model and card rendering.
+- Color picker UI has been implemented as a dedicated ColorPickerPage for intuitive color selection.
 - Each loyalty card contains a `QrCodeId` property used as the QR payload; customer-facing QR scanning uses this id.
+- Loyalty cards now display the customer's joined date and QR code ID for business owner reference.
 
 ---
 
@@ -141,7 +142,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 Next to add
 
-- add input for business logo in the business profile; this will be added to the loyalty cards
-- add customers id (qr id) to the loyalty cards
-- add colorpicker instead of hex code input text in the business profile
 - improve app ui (button feedback on press, some text clarity, fixes for UI errors such as when sharing a card the card shows itself behind the LoyaltyCardDetailPage, etc.)
+- customer interface (Munch-Collector)

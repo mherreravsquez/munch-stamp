@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="munch_stamp.ColorPickerPage"
+             BackgroundColor="#80000000">
+
+    <ScrollView>
+        <Border Margin="24,60,24,60"
+                BackgroundColor="{StaticResource GlassDark}"
+                Stroke="{StaticResource LineColor}"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 28"
+                Padding="20">
+            <VerticalStackLayout Spacing="14">
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label x:Name="TitleLabel" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}" />
+                    <Button Grid.Column="1" Text="✕" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" FontSize="18" Clicked="OnCancelClicked" />
+                </Grid>
+
+                <!-- Live preview -->
+                <Border x:Name="PreviewSwatch" HeightRequest="70" StrokeShape="RoundRectangle 18" StrokeThickness="1" Stroke="{StaticResource LineColor}" />
+                <Label x:Name="HexLabel" HorizontalTextAlignment="Center" FontFamily="Monospace" TextColor="{StaticResource TextMuted}" FontSize="13" />
+
+                <!-- Presets -->
+                <Label Text="PRESETS" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" TextColor="{StaticResource TextMuted}" />
+                <FlexLayout x:Name="PresetsLayout" Wrap="Wrap" JustifyContent="Start" />
+
+                <!-- Sliders -->
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="HUE" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" TextColor="{StaticResource TextMuted}" />
+                    <Slider x:Name="HueSlider" Minimum="0" Maximum="1" ValueChanged="OnSliderChanged" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="SATURATION" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" TextColor="{StaticResource TextMuted}" />
+                    <Slider x:Name="SaturationSlider" Minimum="0" Maximum="1" ValueChanged="OnSliderChanged" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="LIGHTNESS" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" TextColor="{StaticResource TextMuted}" />
+                    <Slider x:Name="LightnessSlider" Minimum="0" Maximum="1" ValueChanged="OnSliderChanged" />
+                </VerticalStackLayout>
+
+                <!-- Optional exact hex input -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="HEX (OPTIONAL)" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" TextColor="{StaticResource TextMuted}" />
+                    <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                        <Entry x:Name="HexEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}"
+                               Completed="OnHexEntryCompleted" Unfocused="OnHexEntryCompleted" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <Button x:Name="SelectButton" Text="Select" Style="{StaticResource PrimaryButton}" Clicked="OnSelectClicked" />
+
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

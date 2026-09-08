@@ -98,31 +98,19 @@ public partial class LoyaltyCardDetailPage : ContentPage
         {
             Business = business,
             CustomerName = _card.CustomerName,
-            QrCodeImageSource = qrImageSource
+            QrCodeImageSource = qrImageSource,
+            QrCodeId = _card.QrCodeId,
+            JoinedDate = _card.CreatedAt
         };
-
-        CardRenderTarget.Content = cardView;
-        CardRenderTarget.IsVisible = true;
 
         try
         {
-            // Ensure the render target is laid out and rendered before capturing.
-            // Some platforms require a layout/render pass; give the UI a moment.
-            CardRenderTarget.ForceLayout();
-            await Task.Yield();
-            await Task.Delay(250);
-
-            // CardRenderTarget.CaptureAsync may return an IScreenshotResult in some MAUI versions.
-            var screenshotResult = await CardRenderTarget.CaptureAsync();
-            if (screenshotResult is null) return;
-
-            using var stream = await screenshotResult.OpenReadAsync();
-            if (stream is null) return;
+            var pngBytes = await CardRenderService.RenderToPngAsync(CardRenderTarget, cardView);
+            if (pngBytes is null) return;
 
             var fileName = $"{SanitizeFileName(_card.CustomerName)}-card.png";
             var filePath = Path.Combine(FileSystem.CacheDirectory, fileName);
-            using var fileStream = File.Create(filePath);
-            await stream.CopyToAsync(fileStream);
+            await File.WriteAllBytesAsync(filePath, pngBytes);
 
             await Share.Default.RequestAsync(new ShareFileRequest
             {
@@ -133,11 +121,6 @@ public partial class LoyaltyCardDetailPage : ContentPage
         catch (Exception ex)
         {
             await DisplayAlert(LocalizationService.Get("Error"), ex.Message, "OK");
-        }
-        finally
-        {
-            CardRenderTarget.Content = null;
-            CardRenderTarget.IsVisible = false;
         }
     }
 

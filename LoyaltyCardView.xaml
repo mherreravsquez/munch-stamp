@@ -23,25 +23,28 @@
                 <!-- Top: business name + logo -->
                 <Grid ColumnDefinitions="*,Auto" Grid.Row="0" Margin="0,0,0,12">
                     <VerticalStackLayout>
-                        <Label Text="LOYALTY" FontSize="12" FontAttributes="Bold"
+                        <Label Text="LOYALTY" FontSize="17" FontAttributes="Bold"
                                TextColor="White" Opacity="0.6" />
                         <Label x:Name="BusinessNameLabel" Text="Business"
-                               FontSize="24" FontAttributes="Bold" TextColor="White" />
+                               FontSize="34" FontAttributes="Bold" TextColor="White" />
                     </VerticalStackLayout>
                     
                 <!-- Bussines icon/logo -->
-                    <Border Grid.Column="1" WidthRequest="44" HeightRequest="44"
-                            BackgroundColor="White" Opacity="0.12" StrokeShape="RoundRectangle 14"
-                            HorizontalOptions="End" VerticalOptions="Center">
-                        <Label Text="✦" FontSize="22" TextColor="White"
+                <Border Grid.Column="1" WidthRequest="60" HeightRequest="60"
+                        BackgroundColor="White" StrokeShape="RoundRectangle 14"
+                        HorizontalOptions="End" VerticalOptions="Center">
+                    <Grid>
+                        <Label x:Name="LogoPlaceholderLabel" Text="✦" FontSize="36" TextColor="White"
                                HorizontalOptions="Center" VerticalOptions="Center" />
-                    </Border>
+                        <Image x:Name="LogoImage" Aspect="AspectFill" IsVisible="False" />
+                    </Grid>
+                </Border>
                 </Grid>
 
                 <!-- Center: QR code -->
                 <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Border BackgroundColor="White" Padding="18" StrokeShape="RoundRectangle 24"
-                            WidthRequest="190" HeightRequest="190">
+                    <Border BackgroundColor="White" Padding="14" StrokeShape="RoundRectangle 24"
+                            WidthRequest="320" HeightRequest="320">
                         <Image x:Name="QrCodeImage" Source="qr.png" Aspect="AspectFit" />
                     </Border>
                 </Grid>
@@ -49,20 +52,19 @@
                 <!-- Bottom: customer name + meta -->
                 <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Margin="0,12,0,0">
                     <VerticalStackLayout Grid.Column="0">
-                        <Label Text="MEMBER" FontSize="10" FontAttributes="Bold"
+                        <Label Text="MEMBER" FontSize="22" FontAttributes="Bold"
                                TextColor="White" Opacity="0.5" />
                         <Label x:Name="CustomerNameLabel" Text="Customer"
-                               FontSize="20" FontAttributes="Bold" TextColor="White" />
-                        
-                <!-- This will be to display the time the customer recived his car-->
-                        <Label Text="joined 2026" FontSize="12"
+                               FontSize="32" FontAttributes="Bold" TextColor="White" />
+                        <Label x:Name="JoinedLabel" FontSize="19"
                                TextColor="White" Opacity="0.5" />
                     </VerticalStackLayout>
-                <!-- This will be the customer ID (qr id) -->
-                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
-                        <Label Text="•••• 8842" FontSize="14" TextColor="White"
-                               Opacity="0.5" FontFamily="Monospace" />
-                        
+
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" WidthRequest="210">
+                        <Label Text="ID" FontSize="16" FontAttributes="Bold"
+                               TextColor="White" Opacity="0.4" HorizontalTextAlignment="End" />
+                        <Label x:Name="CardIdLabel" FontSize="20" TextColor="White"
+                               Opacity="0.6" FontFamily="Monospace" HorizontalTextAlignment="End" />
                     </VerticalStackLayout>
                 </Grid>
             </Grid>

@@ -87,5 +87,10 @@
     "CardDesignLabel": "Card Design",
     "BackgroundColorLabel": "Background",
     "Gradient1Label": "Gradient 1",
-    "Gradient2Label": "Gradient 2"
+    "Gradient2Label": "Gradient 2",
+    "BusinessLogoLabel": "LOGO",
+    "ChangeLogoButton": "Change logo",
+    "RemoveLogoButton": "Remove logo",
+    "PreviewButton": "Preview",
+    "JoinedPrefix": "Joined"
 }

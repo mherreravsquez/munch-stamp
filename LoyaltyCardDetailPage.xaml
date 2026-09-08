@@ -6,13 +6,6 @@
              BackgroundImageSource="{x:Null}">
 
     <Grid>
-        <ContentView x:Name="CardRenderTarget"
-                    IsVisible="False"
-                    WidthRequest="600"
-                    HeightRequest="840"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" />
-
         <ScrollView>
             <Border Margin="16,60,16,30"
                    BackgroundColor="{StaticResource GlassDark}"
@@ -50,5 +43,12 @@
                </VerticalStackLayout>
             </Border>
         </ScrollView>
+        
+        <ContentView x:Name="CardRenderTarget"
+                     IsVisible="False"
+                     WidthRequest="600"
+                     HeightRequest="840"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center" />
     </Grid>
 </ContentPage>
