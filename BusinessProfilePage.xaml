@@ -1,5 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:munch_stamp.Controls"
              x:Class="munch_stamp.BusinessProfilePage"
              Title="Business Profile"
              BackgroundColor="{StaticResource BackgroundDark}">
@@ -7,7 +8,7 @@
     <Grid>
         
             <ScrollView>
-                <VerticalStackLayout Padding="18,10,18,30" Spacing="14">
+                <VerticalStackLayout Padding="18,10,18,110" Spacing="14">
 
                 <Grid Margin="0,8,0,8">
                    <VerticalStackLayout Spacing="2">
@@ -15,14 +16,14 @@
                    </VerticalStackLayout>
                 </Grid>
 
-                <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 24">
+                <Border Padding="18" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 22">
                    <VerticalStackLayout Spacing="17">
 
                        <VerticalStackLayout Spacing="8">
                            <Label Text="IDIOMA / LANGUAGE" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
                            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
-                               <Button Text="Español" Clicked="OnSpanishClicked" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource White}" BorderWidth="0" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
-                               <Button Text="English" Clicked="OnEnglishClicked" Grid.Column="1" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" BorderColor="{StaticResource LineColor}" BorderWidth="1" CornerRadius="14" HeightRequest="44" FontAttributes="Bold" />
+                               <Button Text="Español" Clicked="OnSpanishClicked" Style="{StaticResource PrimaryButton}" HeightRequest="44" FontSize="13" />
+                               <Button Text="English" Clicked="OnEnglishClicked" Grid.Column="1" Style="{StaticResource SecondaryButton}" HeightRequest="44" FontSize="13" />
                            </Grid>
                        </VerticalStackLayout>
                        
@@ -30,11 +31,11 @@
                        <VerticalStackLayout Spacing="8">
                            <Label x:Name="LogoLabelText" TextColor="{StaticResource TextMuted}" FontSize="11" FontAttributes="Bold" CharacterSpacing="1" />
                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
-                               <Border x:Name="LogoPreviewBorder" Grid.Column="0" WidthRequest="64" HeightRequest="64"
+                               <Border x:Name="LogoPreviewBorder" Grid.Column="0" WidthRequest="60" HeightRequest="60"
                                        Padding="0" StrokeThickness="1" Stroke="{StaticResource LineColor}"
-                                       StrokeShape="RoundRectangle 18" BackgroundColor="{StaticResource BackgroundDark}">
+                                       StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource GlassSoft}">
                                    <Grid>
-                                       <Label x:Name="LogoPlaceholderLabel" Text="✦" FontSize="26" TextColor="{StaticResource TextMuted}"
+                                       <Label x:Name="LogoPlaceholderLabel" Text="✦" FontSize="22" TextColor="{StaticResource TextMuted}"
                                               HorizontalOptions="Center" VerticalOptions="Center" />
                                        <Image x:Name="LogoPreviewImage" Aspect="AspectFill" IsVisible="False" />
                                    </Grid>
@@ -43,7 +44,7 @@
                                    </Border.GestureRecognizers>
                                </Border>
                                <VerticalStackLayout Grid.Column="1" Spacing="6" VerticalOptions="Center">
-                                   <Button x:Name="ChangeLogoButton" Clicked="OnLogoTapped" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" HeightRequest="38" FontSize="13" />
+                                   <Button x:Name="ChangeLogoButton" Clicked="OnLogoTapped" Style="{StaticResource SecondaryButton}" HeightRequest="38" FontSize="13" />
                                    <Button x:Name="RemoveLogoButton" Clicked="OnRemoveLogoClicked" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" HeightRequest="28" FontSize="12" IsVisible="False" />
                                </VerticalStackLayout>
                            </Grid>
@@ -51,14 +52,14 @@
 
                        <VerticalStackLayout Spacing="7">
                            <Label x:Name="BusinessNameLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                           <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                           <Border BackgroundColor="{StaticResource GlassSoft}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 12" Padding="13,0">
                                <Entry x:Name="NameEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
                            </Border>
                        </VerticalStackLayout>
 
                        <VerticalStackLayout Spacing="7">
                            <Label x:Name="CategoryLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" FontAttributes="Bold" />
-                           <Border BackgroundColor="{StaticResource BackgroundDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="13,0">
+                           <Border BackgroundColor="{StaticResource GlassSoft}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 12" Padding="13,0">
                                <Entry x:Name="CategoryEntry" BackgroundColor="Transparent" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" FontSize="14" HeightRequest="46" />
                            </Border>
                        </VerticalStackLayout>
@@ -69,7 +70,7 @@
                         <VerticalStackLayout Spacing="8">
                             <Label x:Name="BackgroundColorLabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                <Border x:Name="BgColorSwatch" Grid.Column="0" WidthRequest="44" HeightRequest="44"
+                                <Border x:Name="BgColorSwatch" Grid.Column="0" WidthRequest="42" HeightRequest="42"
                                         StrokeShape="RoundRectangle 12" StrokeThickness="1" Stroke="{StaticResource LineColor}"
                                         BackgroundColor="#1a1a2e">
                                     <Border.GestureRecognizers>
@@ -84,7 +85,7 @@
                         <VerticalStackLayout Spacing="8">
                             <Label x:Name="Gradient1LabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                <Border x:Name="Grad1ColorSwatch" Grid.Column="0" WidthRequest="44" HeightRequest="44"
+                                <Border x:Name="Grad1ColorSwatch" Grid.Column="0" WidthRequest="42" HeightRequest="42"
                                         StrokeShape="RoundRectangle 12" StrokeThickness="1" Stroke="{StaticResource LineColor}"
                                         BackgroundColor="#6c5ce7">
                                     <Border.GestureRecognizers>
@@ -99,7 +100,7 @@
                         <VerticalStackLayout Spacing="8">
                             <Label x:Name="Gradient2LabelText" TextColor="{StaticResource TextMuted}" FontSize="12" />
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                <Border x:Name="Grad2ColorSwatch" Grid.Column="0" WidthRequest="44" HeightRequest="44"
+                                <Border x:Name="Grad2ColorSwatch" Grid.Column="0" WidthRequest="42" HeightRequest="42"
                                         StrokeShape="RoundRectangle 12" StrokeThickness="1" Stroke="{StaticResource LineColor}"
                                         BackgroundColor="#fd79a8">
                                     <Border.GestureRecognizers>
@@ -113,7 +114,7 @@
                     </VerticalStackLayout>
 
                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
-                           <Button x:Name="PreviewButton" Clicked="OnPreviewClicked" Text="Preview" Grid.Column="0" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextPrimary}" HeightRequest="44" />
+                           <Button x:Name="PreviewButton" Clicked="OnPreviewClicked" Text="Preview" Grid.Column="0" Style="{StaticResource SecondaryButton}" HeightRequest="44" />
                            <Button x:Name="SaveButton" Clicked="OnSaveClicked" Grid.Column="1" Margin="0,4,0,0" Style="{StaticResource PrimaryButton}" HeightRequest="44" />
                        </Grid>
 
@@ -126,5 +127,7 @@
                      IsVisible="False"
                      WidthRequest="600"
                      HeightRequest="840" />
+
+        <controls:FloatingTabBar x:Name="TabBar" />
     </Grid>
 </ContentPage>

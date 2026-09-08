@@ -25,6 +25,7 @@ public partial class ScanVisitPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        TabBar.Refresh("scan");
 
         var status = await Permissions.RequestAsync<Permissions.Camera>();
         Scanner.CameraEnabled = status == PermissionStatus.Granted;

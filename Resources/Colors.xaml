@@ -4,24 +4,40 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#ef4651</Color>
-    <Color x:Key="Secondary">#ff7a72</Color>
-    <Color x:Key="BackgroundDark">#120708</Color>
-    <Color x:Key="BackgroundDeep">#260c0f</Color>
-    <Color x:Key="GlassDark">#1d0d10</Color>
-    <Color x:Key="GlassSoft">#31181d</Color>
-    <Color x:Key="LineColor">#43262d</Color>
-    <Color x:Key="TextPrimary">#fff7f5</Color>
-    <Color x:Key="TextMuted">#c9aeaa</Color>
+    <!-- ═══════════════════════════════════════════════════════
+         Coffee / copper palette (matches munch-stamp-mockup.html)
+         Same resource KEYS as before on purpose — every page that
+         references {StaticResource Primary}, {StaticResource GlassDark},
+         etc. picks up the new look automatically with zero XAML changes
+         on their end.
+         ═══════════════════════════════════════════════════════ -->
+
+    <Color x:Key="Primary">#D98A4E</Color>          <!-- accent (copper) -->
+    <Color x:Key="Secondary">#D98A4E</Color>        <!-- mockup uses a single accent everywhere -->
+    <Color x:Key="AccentStrong">#C77A3E</Color>     <!-- pressed state -->
+    <Color x:Key="AccentSoft">#29D98A4E</Color>     <!-- ARGB: accent @ ~16% opacity, for avatar/badge fills -->
+    <Color x:Key="AccentInk">#201510</Color>        <!-- text drawn on top of solid accent buttons -->
+
+    <Color x:Key="BackgroundDark">#1E1712</Color>   <!-- app background (flat, no wallpaper) -->
+    <Color x:Key="BackgroundDeep">#140F0C</Color>   <!-- darker recess, e.g. modal scrim base -->
+    <Color x:Key="GlassDark">#29201A</Color>        <!-- card / surface -->
+    <Color x:Key="GlassSoft">#332822</Color>        <!-- surface-raised: inputs, tab bar, avatars bg -->
+    <Color x:Key="LineColor">#40342A</Color>        <!-- borders / dividers -->
+    <Color x:Key="TextPrimary">#F6F0E7</Color>
+    <Color x:Key="TextMuted">#B3A08C</Color>
+
     <Color x:Key="Light">#DFD8F7</Color>
-    <Color x:Key="Dark">#120708</Color>
+    <Color x:Key="Dark">#1E1712</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="LightGray">#E5E5E1</Color>
     <Color x:Key="MidGray">#969696</Color>
     <Color x:Key="DarkGray">#505050</Color>
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="AccentStrongBrush" Color="{StaticResource AccentStrong}"/>
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="{StaticResource AccentSoft}"/>
     <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
     <SolidColorBrush x:Key="BackgroundDeepBrush" Color="{StaticResource BackgroundDeep}"/>
     <SolidColorBrush x:Key="GlassDarkBrush" Color="{StaticResource GlassDark}"/>
@@ -47,13 +63,10 @@
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
 
-    <!-- Wallpaper mesh-gradient palette (source colors baked into
-         Resources/Images/wallpaper_bg.png — see gen_wallpaper.py).
-         Kept here for reference if the wallpaper is ever regenerated
-         or reused as flat accent colors elsewhere. -->
-    <Color x:Key="WallpaperBg">#120708</Color>
-    <Color x:Key="WallpaperGlow">#2a1013</Color>
-    <Color x:Key="WallpaperRed">#7a1c24</Color>
-    <Color x:Key="WallpaperOchre">#8a5a2c</Color>
+    <!-- NOTE: the old mesh-gradient wallpaper (wallpaper_bg.png / gen_wallpaper.py)
+         is no longer referenced anywhere — Styles.xaml now sets a flat
+         BackgroundDark on Page instead, matching the mockup's solid #1E1712
+         background. You can delete wallpaper_bg.png and gen_wallpaper.py,
+         or keep them around in case you want the mesh look back later. -->
 
 </ResourceDictionary>

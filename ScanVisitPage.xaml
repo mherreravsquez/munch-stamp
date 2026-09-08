@@ -2,37 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+             xmlns:controls="clr-namespace:munch_stamp.Controls"
              x:Class="munch_stamp.ScanVisitPage"
              BackgroundColor="{StaticResource BackgroundDark}">
 
-    <Grid RowDefinitions="Auto,*" Padding="20,16">
-        <!-- Header -->
-        <VerticalStackLayout Margin="0,0,0,12">
-            <Label x:Name="ScanEyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-            <Label x:Name="ScanTitleLabel" FontSize="28" FontAttributes="Bold" />
-        </VerticalStackLayout>
+    <Grid>
+        <Grid RowDefinitions="Auto,*" Padding="20,16,20,100">
+            <!-- Header -->
+            <VerticalStackLayout Margin="0,0,0,12">
+                <Label x:Name="ScanEyebrowLabel" TextColor="{StaticResource Primary}" FontSize="12" FontAttributes="Bold" />
+                <Label x:Name="ScanTitleLabel" FontSize="28" FontAttributes="Bold" />
+            </VerticalStackLayout>
 
-        <!-- Scanner -->
-        <Border Grid.Row="1" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="{StaticResource GlassDark}">
-            <Grid>
-                <!-- Camera (disabled by default) -->
-                <scanner:CameraView x:Name="Scanner"
-                                    CameraEnabled="False"
-                                    VibrationOnDetected="True"
-                                    AimMode="False"
-                                    OnDetectionFinished="OnDetectionFinished" />
+            <!-- Scanner -->
+            <Border Grid.Row="1" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 22" BackgroundColor="{StaticResource GlassDark}">
+                <Grid>
+                    <!-- Camera (disabled by default) -->
+                    <scanner:CameraView x:Name="Scanner"
+                                        CameraEnabled="False"
+                                        VibrationOnDetected="True"
+                                        AimMode="False"
+                                        OnDetectionFinished="OnDetectionFinished" />
 
-                <!-- Scan frame -->
-                <Border WidthRequest="240" HeightRequest="240" Stroke="White" StrokeThickness="2" StrokeShape="RoundRectangle 28" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <!-- Scan frame -->
+                    <Border WidthRequest="240" HeightRequest="240" Stroke="{StaticResource Primary}" StrokeThickness="2" StrokeShape="RoundRectangle 22" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" />
 
-                <!-- Animated line -->
-                <BoxView x:Name="ScanLine" WidthRequest="220" HeightRequest="2" Color="{StaticResource Secondary}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <!-- Animated line -->
+                    <BoxView x:Name="ScanLine" WidthRequest="220" HeightRequest="2" Color="{StaticResource Primary}" HorizontalOptions="Center" VerticalOptions="Center" />
 
-                <!-- Bottom text -->
-                <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
-                    <Label x:Name="ScanFrameHintLabel" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
-                </VerticalStackLayout>
-            </Grid>
-        </Border>
+                    <!-- Bottom text -->
+                    <VerticalStackLayout VerticalOptions="End" Padding="24,20" Spacing="4" HorizontalOptions="Center">
+                        <Label x:Name="ScanFrameHintLabel" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <controls:FloatingTabBar x:Name="TabBar" />
     </Grid>
 </ContentPage>

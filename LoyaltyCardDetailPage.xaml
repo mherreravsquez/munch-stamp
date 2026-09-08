@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:munch_stamp.Controls"
              x:Class="munch_stamp.LoyaltyCardDetailPage"
-             BackgroundColor="#80000000"
+             BackgroundColor="#a6000000"
              BackgroundImageSource="{x:Null}">
 
     <Grid>
@@ -11,32 +12,36 @@
                    BackgroundColor="{StaticResource GlassDark}"
                    Stroke="{StaticResource LineColor}"
                    StrokeThickness="1"
-                   StrokeShape="RoundRectangle 28"
+                   StrokeShape="RoundRectangle 22"
                    Padding="20">
 
                <VerticalStackLayout Spacing="16">
 
                    <Grid ColumnDefinitions="*,Auto">
-                       <Label x:Name="EyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-                       <Button Grid.Column="1" Text="✕" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" FontSize="18" Clicked="OnCloseClicked" />
+                       <Label x:Name="EyebrowLabel" TextColor="{StaticResource Primary}" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                       <Button Grid.Column="1" Text="✕" BackgroundColor="{StaticResource GlassSoft}" TextColor="{StaticResource TextMuted}" FontSize="14" WidthRequest="30" HeightRequest="30" CornerRadius="15" Padding="0" Clicked="OnCloseClicked" />
                    </Grid>
 
-                   <Label x:Name="CustomerNameLabel" FontSize="22" FontAttributes="Bold" />
-                   <Label x:Name="ProgressLabel" TextColor="{StaticResource TextMuted}" FontSize="14" />
-                   <Label x:Name="RewardLabel" TextColor="{StaticResource Secondary}" FontSize="14" FontAttributes="Bold" />
+                   <!-- Member card: the highlighted moment inside the detail sheet -->
+                   <Border BackgroundColor="{StaticResource GlassSoft}" Stroke="{StaticResource Primary}" StrokeThickness="1.5" StrokeShape="RoundRectangle 16" Padding="16">
+                       <VerticalStackLayout Spacing="10">
+                           <Label x:Name="CustomerNameLabel" FontSize="20" FontAttributes="Bold" />
+                           <Label x:Name="ProgressLabel" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                           <controls:StampDotsView x:Name="StampDots" Large="True" HorizontalOptions="Start" />
+                           <Label x:Name="RewardLabel" TextColor="{StaticResource Primary}" FontSize="14" FontAttributes="Bold" Margin="0,4,0,0" />
+                       </VerticalStackLayout>
+                   </Border>
 
-                   <ProgressBar x:Name="ProgressBar" ProgressColor="{StaticResource Primary}" BackgroundColor="{StaticResource BackgroundDeep}" HeightRequest="8" />
-
-                   <Image x:Name="QrCodeImage" HeightRequest="180" WidthRequest="180" HorizontalOptions="Center" BackgroundColor="White" Margin="0,8" />
+                   <Image x:Name="QrCodeImage" HeightRequest="160" WidthRequest="160" HorizontalOptions="Center" BackgroundColor="White" Margin="0,4" />
 
                    <Button Style="{StaticResource PrimaryButton}" x:Name="RegisterVisitButtonControl" Clicked="OnRegisterVisitClicked" />
 
                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                       <Button Grid.Column="0" x:Name="ShareButton" BackgroundColor="{StaticResource GlassSoft}" Clicked="OnShareClicked" />
-                       <Button Grid.Column="1" x:Name="UndoVisitButtonControl" BackgroundColor="{StaticResource GlassSoft}" Clicked="OnUndoVisitClicked" />
+                       <Button Grid.Column="0" x:Name="ShareButton" Style="{StaticResource SecondaryButton}" Clicked="OnShareClicked" />
+                       <Button Grid.Column="1" x:Name="UndoVisitButtonControl" Style="{StaticResource SecondaryButton}" Clicked="OnUndoVisitClicked" />
                    </Grid>
 
-                   <Button x:Name="RedeemButton" IsVisible="False" Clicked="OnRedeemClicked" />
+                   <Button x:Name="RedeemButton" Style="{StaticResource SecondaryButton}" IsVisible="False" Clicked="OnRedeemClicked" />
 
                    <Button x:Name="CloseButtonControl" BackgroundColor="Transparent" TextColor="{StaticResource TextMuted}" Clicked="OnCloseClicked" />
 

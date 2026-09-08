@@ -13,9 +13,9 @@ public partial class BackupPage : ContentPage
     private void ApplyTranslations()
     {
         Title = LocalizationService.Get("BackupTab");
-        ExportButton.Text = LocalizationService.Get("ExportButton");
-        SaveToDeviceButton.Text = LocalizationService.Get("SaveToDeviceButton"); // new
-        RestoreButton.Text = LocalizationService.Get("RestoreButton");
+        ExportButton.Text = $"{LocalizationService.Get("ExportButton")}";
+        SaveToDeviceButton.Text = $"{LocalizationService.Get("SaveToDeviceButton")}"; // new
+        RestoreButton.Text = $"{LocalizationService.Get("RestoreButton")}";
     }
 
     private async void OnSaveToDeviceClicked(object? sender, EventArgs e)
@@ -34,6 +34,7 @@ public partial class BackupPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        TabBar.Refresh("backup");
         RefreshLastBackupLabel();
     }
 

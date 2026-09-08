@@ -4,30 +4,41 @@
        xmlns:local="clr-namespace:munch_stamp"
        x:Class="munch_stamp.AppShell"
        Shell.BackgroundColor="{StaticResource BackgroundDark}"
-       Shell.TabBarBackgroundColor="#0f0507"
-       Shell.TabBarForegroundColor="{StaticResource Secondary}"
+       Shell.TabBarBackgroundColor="{StaticResource GlassSoft}"
+       Shell.TabBarForegroundColor="{StaticResource Primary}"
        Shell.TabBarTitleColor="{StaticResource TextPrimary}"
-       Shell.TabBarUnselectedColor="#9e8581"
+       Shell.TabBarUnselectedColor="{StaticResource TextMuted}"
+       Shell.TabBarIsVisible="False"
        Shell.NavBarIsVisible="False">
 
+    <!-- Native TabBar UI is hidden (Shell.TabBarIsVisible="False" above) —
+         Controls/FloatingTabBar.xaml is the visible tab bar now. This
+         TabBar/ShellContent block is kept as-is because it still defines
+         the routes ("//home", "//cards", ...) that FloatingTabBar
+         navigates to via Shell.Current.GoToAsync. -->
     <TabBar>
         <ShellContent x:Name="HomeTabContent"
+                      Route="home"
                       Title="Inicio"
                       ContentTemplate="{DataTemplate local:HomePage}" />
 
         <ShellContent x:Name="CardsTabContent"
+                      Route="cards"
                       Title="Tarjetas"
                       ContentTemplate="{DataTemplate local:LoyaltyCardListPage}" />
 
         <ShellContent x:Name="ScanTabContent"
+                      Route="scan"
                       Title="Escanear"
                       ContentTemplate="{DataTemplate local:ScanVisitPage}" />
 
         <ShellContent x:Name="BusinessTabContent"
+                      Route="business"
                       Title="Negocio"
                       ContentTemplate="{DataTemplate local:BusinessProfilePage}" />
         
         <ShellContent x:Name="BackupTabContent"
+                      Route="backup"
                       Title="Backup"
                       ContentTemplate="{DataTemplate local:BackupPage}" />
     </TabBar>

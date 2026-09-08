@@ -21,10 +21,10 @@ public partial class LoyaltyCardDetailPage : ContentPage
     private void ApplyTranslations()
     {
         EyebrowLabel.Text = LocalizationService.Get("CardDetailEyebrow");
-        RegisterVisitButtonControl.Text = LocalizationService.Get("RegisterVisitButton");
-        ShareButton.Text = LocalizationService.Get("ShareButton");
-        UndoVisitButtonControl.Text = LocalizationService.Get("UndoVisitButton");
-        RedeemButton.Text = LocalizationService.Get("RedeemButton");
+        RegisterVisitButtonControl.Text = $"✓ {LocalizationService.Get("RegisterVisitButton")}";
+        ShareButton.Text = $"📤 {LocalizationService.Get("ShareButton")}";
+        UndoVisitButtonControl.Text = $"↩ {LocalizationService.Get("UndoVisitButton")}";
+        RedeemButton.Text = $"🎁 {LocalizationService.Get("RedeemButton")}";
         CloseButtonControl.Text = LocalizationService.Get("CloseButton");
     }
 
@@ -32,8 +32,9 @@ public partial class LoyaltyCardDetailPage : ContentPage
     {
         CustomerNameLabel.Text = _card.CustomerName;
         ProgressLabel.Text = _card.ProgressText;
-        RewardLabel.Text = _card.RewardDescription;
-        ProgressBar.Progress = _card.ProgressPercent;
+        RewardLabel.Text = $"🎁 {_card.RewardDescription}";
+        StampDots.Total = _card.VisitsRequired;
+        StampDots.Filled = _card.VisitsCount;
         QrCodeImage.Source = ImageSource.FromStream(() => new MemoryStream(GenerateQrCodePng(_card.QrCodeId)));
         RedeemButton.IsVisible = RewardService.HasEarnedReward(_card);
     }

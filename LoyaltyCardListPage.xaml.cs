@@ -31,6 +31,9 @@ public partial class LoyaltyCardListPage : ContentPage
 
     private async Task RefreshList()
     {
+        ApplyTranslations();
+        TabBar.Refresh("cards");
+
         var cards = await _cardService.LoadAllAsync();
         CardsCollectionView.ItemsSource = cards.Where(c => c.IsActive).ToList();
     }

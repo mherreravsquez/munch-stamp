@@ -1,4 +1,4 @@
-﻿using munch_stamp.Models;
+using munch_stamp.Models;
 using munch_stamp.Services;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices;
@@ -65,6 +65,8 @@ public partial class BusinessProfilePage : ContentPage
 
     private async void OnPageLoaded(object? sender, EventArgs e)
     {
+        TabBar.Refresh("business");
+
         var existing = await _profileService.LoadAsync();
         _currentBusiness = existing ?? new Business();
 

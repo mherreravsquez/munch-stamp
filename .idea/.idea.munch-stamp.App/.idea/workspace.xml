@@ -24,7 +24,32 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="" />
+    <list default="true" id="487bd4a0-234f-4e8a-9ad0-af608f52b215" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controls/FloatingTabBar.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controls/FloatingTabBar.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controls/StampDotsView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.munch-stamp.App/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackupPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BackupPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackupPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackupPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HomePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardDetailPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LoyaltyCardListPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/Android/Resources/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/Resources/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Colors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Colors.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Raw/Strings/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/appicon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/appicon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/appiconfg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/appiconfg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ScanVisitPage.xaml.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,8 +74,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/AddLoyaltyCardPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/marchel/RiderProjects/munch-stamp/LoyaltyCardListPage.xaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -87,31 +110,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android.munch-stamp.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/usr/lib/jvm/java-17-openjdk-amd64/bin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android.munch-stamp.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/usr/lib/jvm/java-17-openjdk-amd64/bin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Android.munch-stamp">
     <configuration name="munch-stamp: Windows Machine" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/munch-stamp.csproj" />
@@ -167,6 +190,8 @@
       <workItem from="1788747594699" duration="7027000" />
       <workItem from="1788754870734" duration="3165000" />
       <workItem from="1788828542158" duration="6453000" />
+      <workItem from="1788856096842" duration="1356000" />
+      <workItem from="1788857535776" duration="855000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:munch_stamp.Converters"
+             xmlns:controls="clr-namespace:munch_stamp.Controls"
              x:Class="munch_stamp.LoyaltyCardListPage"
              BackgroundColor="{StaticResource BackgroundDark}">
 
@@ -11,43 +12,45 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*" Padding="20,16">
-        <!-- Header -->
-        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
-            <VerticalStackLayout Spacing="2">
-                <Label x:Name="EyebrowLabel" TextColor="{StaticResource Secondary}" FontSize="12" FontAttributes="Bold" />
-                <Label x:Name="TitleLabel" FontSize="28" FontAttributes="Bold" />
-            </VerticalStackLayout>
-            <!-- Doubles as the add-card entry point (see OnAddCardClicked) -->
-            <Border Grid.Column="1" x:Name="AddCardButton" WidthRequest="42" HeightRequest="42" Padding="0" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 15" HorizontalOptions="End" VerticalOptions="Center">
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnAddCardClicked" />
-                </Border.GestureRecognizers>
-                <Label Text="＋" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-            </Border>
+    <Grid>
+        <Grid RowDefinitions="Auto,*" Padding="20,16,20,100">
+            <!-- Header -->
+            <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+                <VerticalStackLayout Spacing="2">
+                    <Label x:Name="EyebrowLabel" TextColor="{StaticResource Primary}" FontSize="12" FontAttributes="Bold" />
+                    <Label x:Name="TitleLabel" FontSize="28" FontAttributes="Bold" />
+                </VerticalStackLayout>
+                <!-- Doubles as the add-card entry point (see OnAddCardClicked) -->
+                <Border Grid.Column="1" x:Name="AddCardButton" WidthRequest="42" HeightRequest="42" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 21" BackgroundColor="{StaticResource AccentSoft}" HorizontalOptions="End" VerticalOptions="Center">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAddCardClicked" />
+                    </Border.GestureRecognizers>
+                    <Label Text="＋" FontSize="22" TextColor="{StaticResource Primary}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </Border>
+            </Grid>
+
+            <!-- List of all cards -->
+            <CollectionView Grid.Row="1" x:Name="CardsCollectionView" SelectionMode="Single" SelectionChanged="OnCardSelected" VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,0,0,8" Padding="14" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 16">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                <Border WidthRequest="42" HeightRequest="42" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource AccentSoft}">
+                                    <Label Text="{Binding CustomerName, Converter={StaticResource InitialsConverter}}" TextColor="{StaticResource Primary}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                    <Label Text="{Binding CustomerName}" FontAttributes="Bold" FontSize="14" />
+                                    <Label Text="{Binding ProgressText}" TextColor="{StaticResource TextMuted}" FontSize="12" />
+                                    <controls:StampDotsView Filled="{Binding VisitsCount}" Total="{Binding VisitsRequired}" HorizontalOptions="Start" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="{Binding RewardDescription, StringFormat='🎁 {0}'}" TextColor="{StaticResource Primary}" FontSize="12" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaximumWidthRequest="90" LineBreakMode="WordWrap" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
 
-        <!-- List of all cards -->
-        <CollectionView Grid.Row="1" x:Name="CardsCollectionView" SelectionMode="Single" SelectionChanged="OnCardSelected" VerticalScrollBarVisibility="Never">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Margin="0,0,0,10" Padding="16" BackgroundColor="{StaticResource GlassDark}" Stroke="{StaticResource LineColor}" StrokeThickness="1" StrokeShape="RoundRectangle 20">
-                        <VerticalStackLayout Spacing="10">
-                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
-                                <Border WidthRequest="43" HeightRequest="43" Padding="0" StrokeThickness="0" StrokeShape="RoundRectangle 14" BackgroundColor="{StaticResource Primary}">
-                                    <Label Text="{Binding CustomerName, Converter={StaticResource InitialsConverter}}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                                </Border>
-                                <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                    <Label Text="{Binding CustomerName}" FontAttributes="Bold" />
-                                    <Label Text="{Binding ProgressText}" TextColor="{StaticResource TextMuted}" FontSize="12" />
-                                </VerticalStackLayout>
-                                <Label Grid.Column="2" Text="{Binding RewardDescription}" TextColor="#ffd1cc" FontSize="12" VerticalTextAlignment="Center" />
-                            </Grid>
-                            <ProgressBar Progress="{Binding ProgressPercent}" />
-                        </VerticalStackLayout>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <controls:FloatingTabBar x:Name="TabBar" />
     </Grid>
 </ContentPage>

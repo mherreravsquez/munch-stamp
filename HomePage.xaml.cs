@@ -18,7 +18,7 @@ public partial class HomePage : ContentPage
     private void ApplyTranslations()
     {
         HomeEyebrowLabel.Text = LocalizationService.Get("HomeEyebrow");
-        HeroBrandLabel.Text = LocalizationService.Get("HeroBrand");
+        HeroBrandLabel.Text = $"☕ {LocalizationService.Get("HeroBrand")}";
         HeroHeadlineLabel.Text = LocalizationService.Get("HeroHeadline");
         HeroSubtitleLabel.Text = LocalizationService.Get("HeroSubtitle");
         ActiveCustomersLabelText.Text = LocalizationService.Get("ActiveCustomersLabel");
@@ -35,9 +35,13 @@ public partial class HomePage : ContentPage
 
     private async Task RefreshAsync()
     {
+        // Re-applied here too (not just in the constructor) so switching
+        // language on the Business tab is reflected the next time this
+        // tab appears, same as the tab bar's own labels below.
+        ApplyTranslations();
+        TabBar.Refresh("home");
+
         var business = await _profileService.LoadAsync();
-        // Falls back to the generic "HomeTitle" string if no business
-        // has been set up yet, rather than showing a blank header.
         HomeTitleLabel.Text = string.IsNullOrWhiteSpace(business?.Name)
             ? LocalizationService.Get("HomeTitle")
             : business.Name;
