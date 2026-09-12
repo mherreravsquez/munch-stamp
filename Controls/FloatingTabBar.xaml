@@ -13,14 +13,14 @@
             StrokeShape="RoundRectangle 999"
             Padding="10,10"
             HorizontalOptions="Center"
-            WidthRequest="380">
+            WidthRequest="340">
         <Border.Shadow>
             <Shadow Brush="Black" Opacity="0.45" Radius="30" Offset="0,10" />
         </Border.Shadow>
 
-        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnSpacing="4">
+        <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="4" HorizontalOptions="Center" WidthRequest="300">
 
-            <VerticalStackLayout x:Name="HomeTabItem" Grid.Column="0" Spacing="3" WidthRequest="72" HorizontalOptions="Center">
+            <VerticalStackLayout x:Name="HomeTabItem" Grid.Column="0" Spacing="3" HorizontalOptions="Center">
                 <Label x:Name="HomeTabIcon" Text="⌂" FontSize="20" HorizontalTextAlignment="Center" />
                 <Label x:Name="HomeTabLabel" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 <VerticalStackLayout.GestureRecognizers>
@@ -28,7 +28,7 @@
                 </VerticalStackLayout.GestureRecognizers>
             </VerticalStackLayout>
 
-            <VerticalStackLayout x:Name="CardsTabItem" Grid.Column="1" Spacing="3" WidthRequest="72" HorizontalOptions="Center">
+            <VerticalStackLayout x:Name="CardsTabItem" Grid.Column="1" Spacing="3" HorizontalOptions="Center">
                 <Label x:Name="CardsTabIcon" Text="▤" FontSize="20" HorizontalTextAlignment="Center" />
                 <Label x:Name="CardsTabLabel" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 <VerticalStackLayout.GestureRecognizers>
@@ -36,7 +36,7 @@
                 </VerticalStackLayout.GestureRecognizers>
             </VerticalStackLayout>
 
-            <VerticalStackLayout x:Name="ScanTabItem" Grid.Column="2" Spacing="3" WidthRequest="72" HorizontalOptions="Center">
+            <VerticalStackLayout x:Name="ScanTabItem" Grid.Column="2" Spacing="3" HorizontalOptions="Center">
                 <Label x:Name="ScanTabIcon" Text="⊡" FontSize="20" HorizontalTextAlignment="Center" />
                 <Label x:Name="ScanTabLabel" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 <VerticalStackLayout.GestureRecognizers>
@@ -44,7 +44,7 @@
                 </VerticalStackLayout.GestureRecognizers>
             </VerticalStackLayout>
 
-            <VerticalStackLayout x:Name="BusinessTabItem" Grid.Column="3" Spacing="3" WidthRequest="72" HorizontalOptions="Center">
+            <VerticalStackLayout x:Name="BusinessTabItem" Grid.Column="3" Spacing="3" HorizontalOptions="Center">
                 <Label x:Name="BusinessTabIcon" Text="▣" FontSize="20" HorizontalTextAlignment="Center" />
                 <Label x:Name="BusinessTabLabel" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 <VerticalStackLayout.GestureRecognizers>
@@ -52,7 +52,7 @@
                 </VerticalStackLayout.GestureRecognizers>
             </VerticalStackLayout>
 
-            <VerticalStackLayout x:Name="BackupTabItem" Grid.Column="4" Spacing="3" WidthRequest="72" HorizontalOptions="Center">
+            <VerticalStackLayout x:Name="BackupTabItem" Grid.Column="4" Spacing="3" HorizontalOptions="Center">
                 <Label x:Name="BackupTabIcon" Text="⇧" FontSize="20" HorizontalTextAlignment="Center" />
                 <Label x:Name="BackupTabLabel" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 <VerticalStackLayout.GestureRecognizers>
